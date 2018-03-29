@@ -82,7 +82,7 @@ html body {
 .square {
 	background-image: url("../img/board.jpg");
 	background-size: contain;
-	height: 0;
+    height: 0;
 	padding-bottom: 95%;
 	margin: 5%;
 	position: relative;
@@ -206,10 +206,27 @@ html body {
 	100% {margin-left: 1.66%; margin-top: 1.66%;}
 }
 @keyframes tulip {
-	100% {transform: rotate(360deg)};
+	100% {transform: rotate(360deg);}
 }
 @keyframes snowflake01 {
 	100% {transform: translateY(100%);}
+}
+
+.rockpaperscissors {
+    border-radius: 100%;
+	background-size: cover;
+	padding-bottom: 95%;
+	margin: 5%;
+	position: relative;
+}
+#rock {
+    background-image: url("../img/rock.jpg");
+}
+#paper {
+    background-image: url("../img/paper.jpg");
+}
+#scissors {
+    background-image: url("../img/scissors.jpg");
 }
 /*end page specific content*/
 
@@ -220,11 +237,12 @@ html body {
 }
 /*for tablets*/
 @media only screen and (min-width: 600px){
-	.col-t-1 {width: 10%;}
+	.col-t-1 {width: 20%;}
 	.col-t-2 {width: 40%;}
-	.col-t-3 {width: 86%%;}
+	.col-t-3 {width: 86%%}
 	.col-t-4 {width: 100%;}
 	.square {padding-bottom: 40%;}
+    .rockpaperscissors {padding-bottom: 20%;}
     .dropdown:before {font-size: 2em;}
     .pagetitle {font-size: 1.25em;}
 }
