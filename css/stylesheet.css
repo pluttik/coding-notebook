@@ -10,12 +10,13 @@
     display: block;
 }
 .squares-container {
-	margin: 10% 10% 10% 10%;
+	margin: 10%;
 }
 [class*="col-"] {
     float: left;
 }
 
+/* header */
 html body {
 	padding: 0;
 	margin: 0;
@@ -27,7 +28,7 @@ html body {
 	width: 100%;
     padding-bottom: 0.5%;
 	top: 0;
-	margin: 0;
+	margin: 0px;
 }
 .logo {
     display: inline-block;
@@ -43,6 +44,7 @@ html body {
 	display: inline-block;
 }
 
+/* menu */
 .dropbtn {
     font-size: 32px;
     border: none;
@@ -51,14 +53,11 @@ html body {
 .dropbtn:hover, .dropbtn:focus {
     background-color: 5A5A5A;
 }
-
 .dropdown {
     float: right;
     position: relative;
     display: inline-block;
-    
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -69,30 +68,33 @@ html body {
     right: 0;
     z-index: 1;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown a:hover {background-color: #ddd}
-
 .show {display:block;}
+/* end menu */
 
 #footer {
 	z-index: 1;
 	background-color:  rgba(170, 250, 236, 0.7);
 	position: fixed;
 	width: 100%;
+    padding-top: 0.5%;
     padding-bottom: 1%;
+    padding-left: 1.66%;
 	bottom: 0;
 }
-/*end general page layout*/
+/* end header */
+/* end general page layout */
 
 
-/*page specific content*/
+/* page specific content */
+
+/* HTML/CSS only page */
 .square {
 	background-image: url("../img/board.jpg");
 	background-size: contain;
@@ -225,39 +227,78 @@ html body {
 @keyframes snowflake01 {
 	100% {transform: translateY(100%);}
 }
+/* end HTML/CSS only page */
 
+/* rockpaperscissors page */
 .rockpaperscissors {
     border-radius: 100%;
-	background-size: cover;
-	padding-bottom: 95%;
-	margin: 5%;
+    width: 100%;
+    padding: 5%;
+	padding-bottom: 5%;
 	position: relative;
 }
-#rock {
-    background-image: url("../img/rock.jpg");
+.squares-container-rockpaperscissors {
+	margin: 15%;
 }
-#paper {
-    background-image: url("../img/paper.jpg");
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-#scissors {
-    background-image: url("../img/scissors.jpg");
-}
-/*end page specific content*/
 
-/*responsive design*/
-/*for mobile phone*/
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 100%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* end rockpaperscissors page */
+/* end page specific content */
+
+/* responsive design */
+/* for mobile phone */
 [class *="col-"] {
 	width: 96%;
 }
-/*for tablets*/
+/* for tablets */
 @media only screen and (min-width: 600px){
-	.col-t-1 {width: 20%;}
+	.col-t-1 {width: 25%;}
 	.col-t-2 {width: 40%;}
 	.col-t-3 {width: 86%%}
 	.col-t-4 {width: 100%;}
 	.square {padding-bottom: 40%;}
-    .rockpaperscissors {padding-bottom: 20%;}
     .dropdown:before {font-size: 2em;}
+    .modal-content {width: 30%; margin: 5% auto;}
     .pagetitle {font-size: 1.25em;}
 }
-/*end responsive design*/
+/* end responsive design */

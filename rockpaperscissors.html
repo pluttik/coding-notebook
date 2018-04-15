@@ -5,6 +5,7 @@
 		<link type="text/css" rel="stylesheet" href="css/stylesheet.css"/>
 	</head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<body>
 	<div id="header">
 		<div class="logo">
@@ -21,15 +22,38 @@
 			</div>
 		</div>
 	</div>
-	<div class="squares-container">
-            <div class="col-t-1 rockpaperscissors" id="rock"></div>
-            <div class="col-t-1 rockpaperscissors" id="paper"></div>
-            <div class="col-t-1 rockpaperscissors" id="scissors"></div>
+	<div class="squares-container-rockpaperscissors">
+        <div class="col-t-1">
+        <img id="onClickRock" class="rockpaperscissors" src="./img/rock.jpg"/>
+        </div>
+        <div class="col-t-1">
+        <img id="onClickPaper" class="rockpaperscissors" src="./img/paper.jpg"/>
+        </div>
+        <div class="col-t-1">
+        <img id="onClickScissors" class="rockpaperscissors" src="./img/scissors.jpg"/>
+        </div>
 	</div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            
+            <div class="modal-body">
+                <p><img id="modalImage" src="./img/scissorswins.jpg"/></p>
+            </div>
+        </div>
+    </div>
+    
 	<div id="footer">
         footer
 	</div>
+    
+    <script src="scripts/common_script.js"></script>
     <script src="scripts/rockpaperscissors.js"></script>
-        <script src="scripts/common_script.js"></script>
 	</body>
 </html>

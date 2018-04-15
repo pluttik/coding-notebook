@@ -1,64 +1,26 @@
-var myImageR = document.querySelector('#onClickRock');
-var myImageP = document.querySelector('#onClickPaper');
-var myImageS = document.querySelector('#onClickScissors');
-var userChoice = "none";
-var winnerImage = "./images/scissorswins.jpg"
-var winner = "computer";
+// Get the modal
+var modal = document.getElementById('myModal');
 
-myImageR.onclick = function() {
-    userChoice = "rock";
-    game ();
-  }
-myImageP.onclick = function() {
-    userChoice = "paper";
-    game ();
-    }
-myImageS.onclick = function() {
-    userChoice = "scissors";
-    game ();
-    }
+// Get the button that opens the modal
+//var btn = document.getElementById("myBtn");
 
-var compare = function (choice1,choice2) {
-    if (choice1 === choice2) {
-        winnerImage = "./images/tie.jpg";
-        winner = "none";
-        return "The result is a tie!"
-    }
-    else if (choice1 === "rock") {
-        if (choice2 === "scissors") {
-            winnerImage = "./images/rockwins.jpg";
-            winner = "user";
-            return "rock wins";
-        }
-        else {
-            winnerImage = "./images/paperwins.jpg";
-            winner = "computer";
-            return "paper wins";
-        }
-    }
-    else if (choice1 === "paper") {
-        if (choice2 === "rock") {
-            winnerImage = "./images/paperwins.jpg";
-            winner = "user";
-            return "paper wins";
-        }
-        else {
-            winnerImage = "./images/scissorswins.jpg";
-            winner = "computer";
-            return "scissors wins";
-        }
-    }
-    else if (choice1 === "scissors") {
-        if (choice2 === "paper") {
-            winnerImage = "./images/scissorswins.jpg";
-            winner = "user";
-            return "scissors wins";
-        }
-        else {
-            winnerImage = "./images/rockwins.jpg";
-            winner = "computer";
-            return "rock wins";
-        }
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+//btn.onclick = function() {
+//    modal.style.display = "block";
+//}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
 }
 
@@ -82,3 +44,72 @@ var game = function () {
     $('.modal-title').text(answer);
     $('#modalImage').attr('src',winnerImage);
 }
+
+var compare = function (choice1,choice2) {
+    if (choice1 === choice2) {
+        winnerImage = "./img/tie.jpg";
+        winner = "none";
+        return "The result is a tie!"
+    }
+    else if (choice1 === "rock") {
+        if (choice2 === "scissors") {
+            winnerImage = "./img/rockwins.jpg";
+            winner = "user";
+            return "rock wins";
+        }
+        else {
+            winnerImage = "./img/paperwins.jpg";
+            winner = "computer";
+            return "paper wins";
+        }
+    }
+    else if (choice1 === "paper") {
+        if (choice2 === "rock") {
+            winnerImage = "./img/paperwins.jpg";
+            winner = "user";
+            return "paper wins";
+        }
+        else {
+            winnerImage = "./img/scissorswins.jpg";
+            winner = "computer";
+            return "scissors wins";
+        }
+    }
+    else if (choice1 === "scissors") {
+        if (choice2 === "paper") {
+            winnerImage = "./img/scissorswins.jpg";
+            winner = "user";
+            return "scissors wins";
+        }
+        else {
+            winnerImage = "./img/rockwins.jpg";
+            winner = "computer";
+            return "rock wins";
+        }
+    }
+}
+
+var myImageR = document.querySelector('#onClickRock');
+var myImageP = document.querySelector('#onClickPaper');
+var myImageS = document.querySelector('#onClickScissors');
+var userChoice = "none";
+var winnerImage = "./img/scissorswins.jpg";
+var winner = "computer";
+
+myImageR.onclick = function() {
+    userChoice = "rock";
+    modal.style.display = "block";
+    console.log(userChoice);
+    game ();
+  }
+myImageP.onclick = function() {
+    userChoice = "paper";
+    modal.style.display = "block";
+    game ();
+    }
+myImageS.onclick = function() {
+    userChoice = "scissors";
+    modal.style.display = "block";
+    game ();
+    }
+  
