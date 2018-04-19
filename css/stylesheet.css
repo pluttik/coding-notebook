@@ -94,6 +94,12 @@ html body {
 
 /* page specific content */
 
+/* HOME page */
+.container-homepage {
+    margin: 15%;
+}
+/*end HOME page*/
+
 /* HTML/CSS only page */
 .square {
 	background-image: url("../img/board.jpg");
@@ -229,6 +235,12 @@ html body {
 }
 /* end HTML/CSS only page */
 
+/* GAMES page */
+.container-gamespage {
+    margin: 15%;
+}
+/*end GAMES page*/
+
 /* rockpaperscissors page */
 .rockpaperscissors {
     border-radius: 100%;
@@ -240,7 +252,6 @@ html body {
 .squares-container-rockpaperscissors {
 	margin: 15%;
 }
-/* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -253,8 +264,6 @@ html body {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -262,20 +271,16 @@ html body {
     border: 1px solid #888;
     width: 80%;
 }
-
 .modal-content img {
     width: 100%;
     border-radius: 100%;
 }
-
-/* The Close Button */
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
     color: black;
