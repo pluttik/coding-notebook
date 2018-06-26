@@ -288,6 +288,21 @@ html body {
     cursor: pointer;
 }
 /* end rockpaperscissors page */
+
+/* memory page */
+.squares-container-memory {
+	margin: 15%;
+}
+.four-card-row {
+    display: block;
+}
+.card {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    display: inline-block;
+}
+/* end memory page */
 /* end page specific content */
 
 /* responsive design */

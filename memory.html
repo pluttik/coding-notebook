@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+	    <link href='https://fonts.googleapis.com/css?family=Dhurjati' rel='stylesheet'>
+		<link type="text/css" rel="stylesheet" href="css/stylesheet.css"/>
+	</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<body>
+	<div id="header">
+		<div class="logo">
+		</div>
+		<div class="pagetitle">
+		Web development test site
+		</div>
+		<div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#x2630;</button>
+            <div id="myDropdown" class="dropdown-content">
+			    <a href="index.html">Home</a>
+                <a href="htmlcssonly.html">HTML and CSS only</a>
+			    <a href="games.html">Games</a>
+			</div>
+		</div>
+	</div>
+    
+    <div class="squares-container-memory">
+        <div class="col-t-3">
+            <h1 id="hello">Memory</h1>
+            <p><input type="button" value="restart game" onClick="location.href=location.href"></p>
+            <div class = "four-card-row">
+                <img id="0" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="1" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="2" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="3" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="4" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="5" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="6" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="7" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="8" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="9" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="10" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+                <img id="11" class="card notFound" onClick="game(this.id)" src="img/board2.jpg"> </img>
+            </div>
+        </div>
+    </div>
+    
+	<div id="footer">
+        footer
+	</div>
+    
+    <script src="scripts/common_script.js"></script>
+    <script src="scripts/memory.js"> </script>
+	</body>
+
+</html>
