@@ -291,14 +291,14 @@ html body {
 
 /* memory page */
 .squares-container-memory {
-	margin: 15%;
+    margin: 15% 5% 15% 5%;
 }
 .four-card-row {
     display: block;
 }
 .card {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 100%;
     display: inline-block;
 }
@@ -320,5 +320,7 @@ html body {
     .dropdown:before {font-size: 2em;}
     .modal-content {width: 30%; margin: 5% auto;}
     .pagetitle {font-size: 1.25em;}
+    .squares-container-memory {margin: 15%;}
+    .card {width: 100px; height: 100px;}
 }
 /* end responsive design */
