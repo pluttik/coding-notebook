@@ -311,7 +311,7 @@ html body {
 	width: 96%;
 }
 /* for tablets */
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 800px){
 	.col-t-1 {width: 25%;}
 	.col-t-2 {width: 40%;}
 	.col-t-3 {width: 86%%}
