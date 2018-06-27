@@ -3,7 +3,7 @@ let firstClicked = false;
 let secondClicked = false;
 
 //size of the game: the number of cards
-let numCards = 12;
+let numCards = 16;
 
 //counter for the number of cards paired
 let numberFound = 0;
@@ -28,7 +28,7 @@ function shuffle(array) {
 }
 
 //fill an array with image names in random order
-let imgNames = ['clown1.png','clown2.jpg','clown3.jpg','clown4.jpg','clown5.jpg','clown6.jpg','clown1.png','clown2.jpg','clown3.jpg','clown4.jpg','clown5.jpg','clown6.jpg'];
+let imgNames = ['clown1.png','clown2.jpg','clown3.jpg','clown4.jpg','clown5.jpg','clown6.jpg','clown7.jpg', 'clown8.jpg', 'clown1.png','clown2.jpg','clown3.jpg','clown4.jpg','clown5.jpg','clown6.jpg', 'clown7.jpg', 'clown8.jpg'];
 names = shuffle(imgNames);
 
 const wait = (ms) => {
