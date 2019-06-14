@@ -253,11 +253,6 @@ html body {
 	margin: 15%;
 }
 
-/* NOTEBOOK page */
-.container-notebookpage {
-    margin: 15%;
-}
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -294,6 +289,14 @@ html body {
     cursor: pointer;
 }
 /* end rockpaperscissors page */
+
+/* NOTEBOOK page */
+.container-notebookpage {
+    margin: 10%;
+    margin-top: 15%;
+    margin-bottom: 50px;
+}
+/* end notebook page */
 
 /* memory page */
 .squares-container-memory {
