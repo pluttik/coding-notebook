@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel='stylesheet' type='text/css' href='index.css'>
+        <link rel='stylesheet' type='text/css' href="css/stylesheet.css"/>
+    </head>
+    <body>
+    <div id="header">
+		<div class="logo"></div>
+		<div class="pagetitle">
+		Web development test site
+		</div>
+		<div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#x2630;</button>
+            <div id="myDropdown" class="dropdown-content">
+			    <a href="index.html">Home</a>
+                <a href="htmlcssonly.html">HTML and CSS only</a>
+			    <a href="games.html">Javascript games</a>
+                <a href="js_notebook.html">JavaScript notebook</a>
+			</div>
+		</div>
+	</div>
+  
+    <div class="container-notebookpage">
+		<div class="col-t-3">
+        <h1>JavaScript notebook</h1><br>
+            
+        <h3>Variable types</h3>
+        <p class='green'><b>Variables are immutable, objects are mutable</b></p>
+        <div class='indent'>
+            <p>var a = 2;                       <span style='color:grey;'>//number</span></p>
+            <p>var b = 'word';                  <span style='color:grey;'>//string</span></p>
+            <p>var c = ['word', 'letter'];      <span style='color:grey;'>//array - in fact type object</span></p>
+            <p>var d = {first: 'a', last: 'z'}; <span style='color:grey;'>//object</span></p>
+            <p>var e;                           <span style='color:grey;'>//undefined</span></p>
+            <p>typeof null;                     <span style='color:grey;'>//object</span></p>
+            <p>typeof function myFunction() {}; <span style='color:grey;'>//function</span></p>
+        </div><br>
+        
+        <h3>More about objects</h3>
+        <p class='green'>Objects have properties</p>
+        <div class='indent'>
+            <p>Each <b>property</b> consists of name:value</p>
+            <p>Values can be functions - name:<b>method</b></p>
+            <p>Access a property like this: <i>objectName.propertyName</i></p>
+            <p>Access a method like this: <i>objectName.methodName()</i></p>
+        </div>
+        
+        <p class='green'>Three ways to create a new object:</p>
+        <ol><li>(single object) object literal: <span style='color:blue;'>var a = {x:1, y:2}</span></li>
+            <li>(single object) with the keyword new: <span style='color:blue;'>var a = new Object(); a.x=1; a.y=2;</span></li>
+            <li>define an object <b>constructor: </b><br>
+                <span style='color:blue'>function A(x, y) { this.xhere = x; this.yhere = y; }<br>
+                var s = new A(1, 2);</span></li>
+        </ol>
+        <p class='green'>Accessing names and values in an object:</p>
+        <p class='indent'>var ab = {name1: 'value1', name2: 'value2'};
+        <p class='indent'>for (z in ab) { console.log(ab[z]); } <span style='color:grey;'>//"value1" "value2"</span></p>
+        <p class='indent'>Object.keys(ab) <span style='color:grey;'>//"name1" "name2"</span></p>
+        <p class='indent'>Object.values(ab) <span style='color:grey;'>//"value1" "value2"</span></p>
+        <p class='indent'>delete ab.name2;</p>
+        <p class='green'>Adding properties to an object:</p>
+        <ol><li>object.newName = newValue;</li>
+            <li>object.newName = function () { return this.oldName + '1'; }</li>
+        </ol>
+        <p class='green'>Getters and setters</p>
+        <p class='indent'>Getters and setters are functions that work like properties</p>
+        <p class='indent'><i>get</i> and <i>set</i> are keywords</p>
+        <p class='indent'>var person = { name: 'John',</p>
+        <p class='indentDouble'>get id() { return this.name; },</p>
+        <p class='indentDouble'>set newName(newName) { this.name = newName; }</p>
+        <p class='indent'>};</p>
+        <p class='indent'>Accessing getters and setters:</p>
+        <p class='indentDouble'><i>getter: </i>person.id</p>
+        <p class='indentDouble'><i>setter: </i>person.newName = 'Mary';</p>
+        <br>
+        
+        <h3>Constructors</h3>
+        <p class='green'>A constructor is a function that creates an object</p>
+        <div class='indent'>
+            <p>General form: function Person(x, y) {</p>
+            <p class='indentDouble'>this.xhere = x;</p>
+            <p class='indentDouble'>this.yhere = function() {};</p>
+            <p>}</p>
+        </div>
+        <p class='green'>Adding properties to a constructor:</p>
+        <div class='indent'>
+            <p>*** not possible ***</p>
+            <p>Instead, use <b>prototype</b>: Person.prototype.zhere = z;</p>
+        </div><br>
+        
+        <h3>Classes</h3>
+        <p class='green'>A class is a kind of constructor function</p>
+        <div class='indent'>
+            <p>A class can have only one <b>constructor</b> method</p>
+            <p>A constructor can use the <b>super</b> keyword to call the constructor of the super class</p>
+            <p>General form: class Person {</p>
+            <p class='indentDouble'>constructor(x) {</p>
+            <p class='indentTriple'>this.xhere = x; } <span style='color:grey;'>//name:value pairs go in the contructor</span></p>
+            <p class='indentDouble'>yhere() {</p>
+            <p class='indentTriple'>console.log(this.xhere); } <span style='color:grey;'>//methods go here, into the prototype</span></p>
+            <p>}</p>
+        </div>
+        <p class='green'><b>Extends</b> and <b>super</b> for inheritance to a subclass</p>
+        <div class='indent'>
+            <p>General form: class Kid <b>extends</b> Person {</p>
+            <p class='indentDouble'>constructor(x) {</p>
+            <p class='indentTriple'><b>super</b>(x); }</p>
+            <p class='indentDouble'>zhere() {</p>
+            <p class='indentTriple'>console.log(this.xhere + 'z'); } }</p>
+        </div
+        <br>
+        
+        <h3>this</h3>
+        <ol><li><b>this</b> is the object that owns the code</li>
+            <li>in an object, <b>this</b> is the object itself</li>
+            <li>in a function, <b>this</b> is the owner of the function</li>
+            <li>in a constructor function, <b>this</b> does not have a value yet (when a new object is created, <b>this</b> will become the new object)</li>
+        </ol><br>
+        
+        <h3>JavaScript DOM: events</h3>
+        <p class='green'>General form: <i><code>&#x3C;element event='some JavaScript'></code></i></p><br>
+        <div class='indent'>
+            <p>Example: <i><code>&#x3C;button onclick='this.innerHTML = Date()'>What time is it?&#x3C;/button></code></i></p>
+            <button onclick='this.innerHTML = Date()'>What time is it?</button><br>
+            <p id='id04' onmouseover='id04ToRed()'>Example: this text will change color on mouseover</p><br>
+            <span id='id01'> This text can... </span><br><br>
+            <button type='button' onclick='id01Disappear()'>...disappear by clicking here</button>
+            <button type='button' onclick='id01Appear()'>...appear by clicking here</button>
+            <button type='button' onclick='id01ChangeText()'>...change by clicking here</button><br>
+            <script>document.write('<p>This is written by document.write()</p><br>')</script>
+            <button type='button' id='id02' onclick='id02Alert()'>This will pop up an alert</button><br>
+            <button type='button' id='id03' onclick='id03Console()'>This will print in console</button><br><br>
+        </div>
+      </div>
+    </div>
+    
+    <div id="footer">
+        thx for watching
+	</div>
+	</body>
+    <script src="scripts/common_script.js"></script>
+    <script src='scripts/js_notebook.js'></script>
+  </body>

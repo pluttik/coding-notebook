@@ -252,6 +252,12 @@ html body {
 .squares-container-rockpaperscissors {
 	margin: 15%;
 }
+
+/* NOTEBOOK page */
+.container-notebookpage {
+    margin: 15%;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */

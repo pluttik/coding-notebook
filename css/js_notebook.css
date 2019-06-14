@@ -1,0 +1,22 @@
+#id01 {
+    color: green;
+    display: inline-block;
+    border: 1px solid green;
+}
+#id04 {
+    color: black;
+    display: inline-block;
+}
+.indent {
+    margin-left: 28px;
+}
+.indentDouble {
+    margin-left: 56px;
+}
+.indentTriple {
+    margin-left: 84px;
+}
+.green {
+    color: green;
+    font-weight: bold;
+}
