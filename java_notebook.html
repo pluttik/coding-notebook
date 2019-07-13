@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel='stylesheet' type='text/css' href='css/js_notebook.css'>
+        <link rel='stylesheet' type='text/css' href="css/stylesheet.css"/>
+    </head>
+    <body>
+    <div id="header">
+		<div class="logo"></div>
+		<div class="pagetitle">
+		Web development test site
+		</div>
+		<div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#x2630;</button>
+            <div id="myDropdown" class="dropdown-content">
+			    <a href="index.html">Home</a>
+                <a href="htmlcssonly.html">HTML and CSS only</a>
+			    <a href="games.html">Javascript games</a>
+                <a href="js_notebook.html">JavaScript notebook</a>
+                <a href="java_notebook.html">Java notebook</a>
+                <a href="https://pinestreetfonts.herokuapp.com" target="_blank">Python/Django</a>
+			</div>
+		</div>
+	</div>
+  
+    <div class="container-notebookpage">
+        <h1>Java notebook</h1><br>
+            
+        <h3>General stuff</h3>
+        <p class='green'><b>General stuff</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>//this is a comment</span></p>
+            <p>System.out.println("Hello, world");<span style='color:grey;'>//print to screen</span></p>
+            <p>double div = 5/2;<span style='color:grey;'>//result is 2 because both are int</span></p>
+            <p>double div = 5/2.0;<span style='color:grey;'>//result is 2.5 because at least one is a double</span></p>
+            <p>int approx = (int) exact;<span style='color:grey;'>//<span style='color:red;'>casting</span> the double exact into an int approx</span></p>
+        </div><br>
+
+        <h3>Variables</h3>
+        <p class='green'><b>Declaration, initialization, updating</b></p>
+        <div class='indent'>
+            <p><span style='color:red;'>int</span> myInteger;</p>
+            <p><span style='color:red;'>long</span> myBigInteger;<span style='color:grey;'>//for integers over 2147483647</span></p>
+            <p>myInteger = 0;</p>
+            <p>myInteger = myInteger + 1;</p>
+            <p><span style='color:red;'>String</span> myString;<span style='color:grey;'>//NB. double quote</span></p>
+            <p>myString = "Hello";</p>
+            <p>int letters = myString.length();</p>
+            <p>myString = myString.toUpperCase();</p>
+            <p>myString = myString + "0123";</p>
+            <p><span style='color:red;'>double</span> myFloat = 1.25;</p>
+            <p><span style='color:red;'>char</span> myCharacter = '3';<span style='color:grey;'>//for single characters, NB. single quote</span></p>
+            <p><span style='color:red;'>boolean</span> myBoolean = true;</p>
+        </div><br>
+        
+        <h3>Control flow</h3>
+        <p class='green'><b>Conditionals</b></p>
+        <div class='indent'>
+            <p>if(condition) {<br>
+                <span class='indentDouble'>action1;</span><br>
+            } else if(condition2){<br>
+                <span class='indentDouble'>action2;");</span><br>
+            } else {<br>
+                <span class='indentDouble'>action3;");</span><br>
+            }</p>
+            
+        </div><br>
+        
+    </div><br>
+        
+           
+    <div id="footer">
+        thx for watching
+	</div>
+	</body>
+    <script src="scripts/common_script.js"></script>
+    <script src='scripts/js_notebook.js'></script>
+  </body>
