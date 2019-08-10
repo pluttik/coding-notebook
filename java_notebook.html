@@ -32,6 +32,8 @@
         <p class='green'><b>General stuff</b></p>
         <div class='indent'>
             <p><span style='color:grey;'>//this is a comment</span></p>
+            <p><span style='color:grey;'>/*this is a<br>multiline comment*/</span></p>
+            <p><span style='color:grey;'>/**<br>* this is a function description<br>* @param myParam description<br>* @return description<br>*/</span></p>
             <p>System.out.println("Hello, world");<span style='color:grey;'>//print to screen</span></p>
             <p>double div = 5/2;<span style='color:grey;'>//result is 2 because both are int</span></p>
             <p>double div = 5/2.0;<span style='color:grey;'>//result is 2.5 because at least one is a double</span></p>
@@ -52,6 +54,8 @@
             <p>myString = myString + "0123";</p>
             <p><span style='color:red;'>double</span> myFloat = 1.25;</p>
             <p><span style='color:red;'>char</span> myCharacter = '3';<span style='color:grey;'>//for single characters, NB. single quote</span></p>
+            <p>int <span style='color:red;'>[]</span> numbers = {1,3,-4}; <span style='color:grey;'>//array</span></p>
+            <p>int <span style='color:red;'>[] []</span> numbers = {1,3,-4}; <span style='color:grey;'>//2D array</span></p>
             <p><span style='color:red;'>boolean</span> myBoolean = true;</p>
         </div><br>
         
@@ -65,7 +69,35 @@
             } else {<br>
                 <span class='indentDouble'>action3;");</span><br>
             }</p>
-            
+            <br>
+            <p>switch(myVariable){<br>
+                <span class='indentDouble'>case 101: answer = 'x';</span><br>
+                <span class='indentTriple'>break;</span><br>
+                <span class='indentDouble'>case 201: answer = 'y';</span><br>
+                <span class='indentTriple'>break;</span><br>
+                <span class='indentDouble'>default: answer = 'a';</span><br>
+                <span class='indentTriple'>break;</span><br>
+            }</p>
+            <br>
+            <p>while(condition) {}</p><br>
+            <p>for (int i=1; i &lt X; i++) {}</p>
+        </div><br>
+
+        <p class='green'><b>Logicals</b></p>
+        <div class='indent'>
+            <p>this && that && something <span style='color:grey;'>//true if all  are true</span></p>
+            <p>this || that || something <span style='color:grey;'>//true if one or more is true</span></p>
+            <p>&& <span style='color:grey;'>evaluates before </span>||</p>
+        </div><br>
+        
+        <p class='green'><b>Functions</b></p>
+        <div class='indent'>
+            <p>public void myFunction(int myInt, String myString) {}<span style='color:grey;'>//an empty function</span></p>
+            <p><span style='color:red;'>public</span> is an access modifier</p>
+            <p><span style='color:red;'>void</span> is a return type</p>
+            <p><span style='color:red;'>int myInt, String myString</span> are arguments</p>
+            <p>public boolean myFunction() {boolean myBoolean = true; return myBoolean}<span style='color:grey;'>//an empty function that returns a boolean</span></p>
+            <p><span style='color:red;'>myBoolean</span> is a return value</p>
         </div><br>
         
     </div><br>
