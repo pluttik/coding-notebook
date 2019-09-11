@@ -20,6 +20,7 @@
 			    <a href="games.html">Javascript games</a>
                 <a href="js_notebook.html">JavaScript notebook</a>
                 <a href="java_notebook.html">Java notebook</a>
+                <a href="databases_notebook.html">Databases notebook</a>
                 <a href="https://pinestreetfonts.herokuapp.com" target="_blank">Python/Django</a>
 			</div>
 		</div>
@@ -34,13 +35,19 @@
             <p><span style='color:grey;'>//this is a comment</span></p>
             <p><span style='color:grey;'>/*this is a<br>multiline comment*/</span></p>
             <p><span style='color:grey;'>/**<br>* this is a function description<br>* @param myParam description<br>* @return description<br>*/</span></p>
-            <p>System.out.println("Hello, world");<span style='color:grey;'>//print to screen</span></p>
-            <p>double div = 5/2;<span style='color:grey;'>//result is 2 because both are int</span></p>
+            <p>System.out.println("Hello, world");<span style='color:grey;'>//print to screen</span><br>
+            System.out.printf("This contains %d and %s and %f", myDigit, myString, myFloat);<span style='color:grey;'>//print to screen with format</span><br>
+            System.out.printf("This number is %6.2f", myFloat);<span style='color:grey;'>//six character positions total, two decimal places</span><br>
+            System.out.printf("This string %-12s", myFloat);<span style='color:grey;'>//minus means left align</span></p>
+            double div = 5/2;<span style='color:grey;'>//result is 2 because both are int</span></p>
             <p>double div = 5/2.0;<span style='color:grey;'>//result is 2.5 because at least one is a double</span></p>
             <p>int approx = (int) exact;<span style='color:grey;'>//<span style='color:red;'>casting</span> the double exact into an int approx</span></p>
             <p>javac HelloWorld.java<span style='color:grey;'>//<span style='color:red;'>compile</span> program</span></p>
             <p>java HelloWorld<span style='color:grey;'>//<span style='color:red;'>run</span> program (no .class file extension)</span></p>
             <p>jshell<span style='color:grey;'>//<span style='color:red;'>shell</span> run java from command prompt</span></p>
+            <p><span style='color:grey;'>//random numbers</span></p>
+            <p>double myNumber = Math.random(); <span style='color:grey;'>//random number 0 &lt;= x &lt; 1</span>
+            <p>int range = (max - min) + 1; <br>int myInt = (int)(Math.random() * range) + min;<span style='color:grey;'>//random whole number min &lt;= x &lt;= max</span>
         </div><br>
 
         <h3>Variables</h3>
@@ -58,6 +65,7 @@
             <p><span style='color:red;'>double</span> myFloat = 1.25;</p>
             <p><span style='color:red;'>char</span> myCharacter = '3';<span style='color:grey;'>//for single characters, NB. single quote</span></p>
             <p><span style='color:red;'>boolean</span> myBoolean = true;</p>
+            <p>int <span style='color:red;'>[]</span> numbers  = new int [3]; <span style='color:grey;'>//array with length 3</span></p>
             <p>int <span style='color:red;'>[]</span> numbers = {1,3,-4}; <span style='color:grey;'>//array</span></p>
             <p>int <span style='color:red;'>[] []</span> numbers = {{1,3},{-4,2}}; <span style='color:grey;'>//2D array</span></p>
             <table style='background-color:#f1f1c1;'>
@@ -99,9 +107,9 @@
                 <span class='indentTriple'>break;</span><br>
             }</p>
             <br>
-            <p>while (condition) {}</p><br>
-            <p>do {} while (condition)</p><br>
-            <p>for (int i=1; i &lt X; i++) {}</p>
+            <p>while (condition) {} <span style='color:grey;'>//executed 0 or more times</span></p><br>
+            <p>do {} while (condition) <span style='color:grey;'>//executed 1 or more times</span></p><br>
+            <p>for (int i=1; i &lt X; i++) {} <span style='color:grey;'>//executed a known number of times</span></p>
         </div><br>
 
         <p class='green'><b>Logicals</b></p>

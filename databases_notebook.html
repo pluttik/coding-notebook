@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel='stylesheet' type='text/css' href='css/js_notebook.css'>
+        <link rel='stylesheet' type='text/css' href="css/stylesheet.css"/>
+    </head>
+    <body>
+    <div id="header">
+		<div class="logo"></div>
+		<div class="pagetitle">
+		Web development test site
+		</div>
+		<div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#x2630;</button>
+            <div id="myDropdown" class="dropdown-content">
+			    <a href="index.html">Home</a>
+                <a href="htmlcssonly.html">HTML and CSS only</a>
+			    <a href="games.html">Javascript games</a>
+                <a href="js_notebook.html">JavaScript notebook</a>
+                <a href="java_notebook.html">Java notebook</a>
+                <a href="databases_notebook.html">Databases notebook</a>
+                <a href="https://pinestreetfonts.herokuapp.com" target="_blank">Python/Django</a>
+			</div>
+		</div>
+	</div>
+  
+    <div class="container-notebookpage">
+        <h1>Databases notebook</h1><br>
+            
+        <h3>General stuff</h3>
+        <p class='green'><b>Keys and tables</b></p>
+        <div class='indent'>
+        <p><span style='color:red;'>primary key</span>: unique, not NULL, minimal (and ideally numerical and fixed)</p>
+        <p><span style='color:red;'>composite key</span>: two or more columns combined into a primary key</p>
+        <p><span style='color:red;'>surrogate key</span>: artificial column as primary key</p>
+        <p><span style='color:red;'>foreign key</span>: connects to a primary key in a different table<br>
+        <span class='indentTriple'>may be composite</span><br>
+        <span class='indentTriple'>in a one-to-many relationship, it sits on the many (child) side</span></p>
+        <p><span style='color:red;'>intersection</span>: two-column table that defines a many-to-many relationship</p>
+        </div><br>
+        
+        <h3>SQL</h3>
+        <p class='green'><b>Simple queries</b></p>
+        <div class='indent'>
+        </div>
+    </div><br>
+        
+           
+    <div id="footer">
+        thx for watching
+	</div>
+	</body>
+    <script src="scripts/common_script.js"></script>
+    <script src='scripts/js_notebook.js'></script>
+  </body>
