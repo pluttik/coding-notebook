@@ -44,6 +44,36 @@
         <h3>SQL</h3>
         <p class='green'><b>Simple queries</b></p>
         <div class='indent'>
+        <p><span style='color:red;'>SELECT</span> * <span style='color:red;'>FROM</span> myTable;</p>
+        <p>SELECT myColumn FROM myTable;</p>
+        <p>SELECT * FROM myTable <span style='color:red;'>WHERE</span> myIntColumn > 10;</p>
+        <p>SELECT * FROM myTable WHERE myCharColumn = 'mytext';</p>
+        <p>SELECT * FROM myTable WHERE myCharColumn = 'mytext' And myIntColumn > 10;</p>
+        <p><span style='color:red;'>DELETE</span> FROM myTable WHERE myIntColumn > 10;</p>
+        <p><span style='color:red;'>UPDATE</span> myTable <span style='color:red;'>SET</span> myColumn = myColumn + 5 WHERE myOtherColumn = 'myText';</p>
+        <p><span style='color:red;'>INSERT INTO</span> myTable <span style='color:red;'>VALUES</span> (myIntValue, 'myCharValue', NULL);</p>
+        </div><br>
+        
+        <p class='green'><b>Script for new schema</b></p>
+        <div class='indent'>
+        <p>CREATE SCHEMA MySchema;</p>
+        CREATE TABLE MySchema.myTable<br>
+        (<br>
+        <div class='indentDouble'>myColumn smallint NOT NULL,<br>
+        myOtherColumn varchar(45) NOT NULL,<br>
+        CONSTRAINT myTable_pkey PRIMARY KEY (myColumn, myOtherColumn)<br>
+        </div>
+        );</p>
+        </div><br>
+        
+        <p class='green'><b>LIKE operator</b></p>
+        <div class='indent'>
+        <p>SELECT * FROM MyTable WHERE myColumn <span style='color:red;'>LIKE</span> 's%';<span style='color:gray;'> // starts with s or S</span></p>
+        <p><span style='color:red;'>_</span><span style='color:gray;'> // one character</p>
+        <p><span style='color:red;'>%</span><span style='color:gray;'> // zero or more characters</p>
+        <p>SELECT * FROM MyTable WHERE myColumn LIKE '%s' <span style='color:red;'>AND</span> myOtherColumn LIKE 's%'<span style='color:gray;'> // combine two LIKEs</p>
+        </div>
+        
         </div>
     </div><br>
         
