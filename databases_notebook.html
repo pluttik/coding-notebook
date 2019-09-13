@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
         <link rel='stylesheet' type='text/css' href='css/js_notebook.css'>
         <link rel='stylesheet' type='text/css' href="css/stylesheet.css"/>
     </head>
@@ -41,27 +42,55 @@
         <p><span style='color:red;'>intersection</span>: two-column table that defines a many-to-many relationship</p>
         </div><br>
         
+        <p class='green'><b>Entity Relationship Diagram (ERD) nomenclature</b></p>
+        <div class='indent'>
+        <p><span style='color:red;'>entity</span> ~ table</p>
+        <p><span style='color:red;'>attribute</span> ~ column</p>
+        <p><span style='color:red;'>identifier</span> ~ primary key</p>
+        </div><br>
+        
+        <p class='green'><b>Normalization</b></p>
+        <div class='indent'>
+        <p>first normal form (1NF) - no repeating values or groups</p>
+        <p>(2NF) - no non-key values based on part of composite key</p>
+        <p>(3NF) - no non-key values based on other non-key values</p>
+        </div><br>
+        
         <h3>SQL</h3>
         <p class='green'><b>Simple queries</b></p>
         <div class='indent'>
-        <p><span style='color:red;'>SELECT</span> * <span style='color:red;'>FROM</span> myTable;</p>
-        <p>SELECT myColumn FROM myTable;</p>
-        <p>SELECT * FROM myTable <span style='color:red;'>WHERE</span> myIntColumn > 10;</p>
-        <p>SELECT * FROM myTable WHERE myCharColumn = 'mytext';</p>
-        <p>SELECT * FROM myTable WHERE myCharColumn = 'mytext' And myIntColumn > 10;</p>
-        <p><span style='color:red;'>DELETE</span> FROM myTable WHERE myIntColumn > 10;</p>
-        <p><span style='color:red;'>UPDATE</span> myTable <span style='color:red;'>SET</span> myColumn = myColumn + 5 WHERE myOtherColumn = 'myText';</p>
-        <p><span style='color:red;'>INSERT INTO</span> myTable <span style='color:red;'>VALUES</span> (myIntValue, 'myCharValue', NULL);</p>
+        <p><span style='color:red;'>SELECT</span> * <span style='color:red;'>FROM</span> MyTable;</p>
+        <p>SELECT myColumn FROM MyTable;</p>
+        <p>SELECT * FROM MyTable <span style='color:red;'>WHERE</span> myIntColumn > 10;</p>
+        <p>SELECT * FROM MyTable WHERE myCharColumn = 'mytext';</p>
+        <p>SELECT * FROM MyTable WHERE myCharColumn = 'mytext' And myIntColumn > 10;</p>
+        <p><span style='color:red;'>DELETE</span> FROM MyTable WHERE myIntColumn > 10;</p>
+        <p><span style='color:red;'>UPDATE</span> MyTable <span style='color:red;'>SET</span> myColumn = myColumn + 5 WHERE myOtherColumn = 'myText';</p>
+        <p><span style='color:red;'>INSERT INTO</span> MyTable <span style='color:red;'>VALUES</span> (myIntValue, 'myCharValue', NULL);</p>
+        </div><br>
+        
+        <p class='green'><b>Queries across tables</b></p>
+        <div class='indent'>
+        <p><span style='color:gray;'>// inner join</span>
+        <p>SELECT * FROM MyTable, MyOtherTable WHERE MyTable.myColumn = MyOtherTable.myOtherColumn;</p>
+        <p>SELECT * FROM MyTable <span style='color:red;'>JOIN</span> MyOtherTable <span style='color:red;'>ON</span> MyTable.myColumn = MyOtherTable = myOtherColumn;</p>
+        <p><span style='color:green;'>SELECT * FROM MyTable1</span> <span style='color:purple;'>JOIN MyTable2 ON MyTable1.myColumn = MyTable2 = myColumn</span> <span style='color:orange;'>JOIN MyTable3 ON MyTable2.myColumn = MyTable3.myColumn;</span></p>
+        </div><br>
+        
+        <p class='green'><b>Aliases</b></p>
+        <div class='indent'>
+        <p>SELECT X.myColumn, Y.myColumn, ... FROM MyTableX <span style='color:red;'>X</span> JOIN MyTableY <span style='color:red;'>Y</span> ON X.myColumn = Y.myColumn</p>
+        <p> SELECT myUglyColumnName <span style='color:red;'>myPrettyAlias</span> FROM MyTable;</p>
         </div><br>
         
         <p class='green'><b>Script for new schema</b></p>
         <div class='indent'>
         <p>CREATE SCHEMA MySchema;</p>
-        CREATE TABLE MySchema.myTable<br>
+        CREATE TABLE MySchema.MyTable<br>
         (<br>
         <div class='indentDouble'>myColumn smallint NOT NULL,<br>
         myOtherColumn varchar(45) NOT NULL,<br>
-        CONSTRAINT myTable_pkey PRIMARY KEY (myColumn, myOtherColumn)<br>
+        CONSTRAINT MyTable_pkey PRIMARY KEY (myColumn, myOtherColumn)<br>
         </div>
         );</p>
         </div><br>
