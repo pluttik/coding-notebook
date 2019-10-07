@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+        <link rel='stylesheet' type='text/css' href='css/js_notebook.css'>
+        <link rel='stylesheet' type='text/css' href="css/stylesheet.css"/>
+    </head>
+    <body>
+    <div id="header">
+		<div class="logo"></div>
+		<div class="pagetitle">
+		Web development test site
+		</div>
+		<div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#x2630;</button>
+            <div id="myDropdown" class="dropdown-content">
+			    <a href="index.html">Home</a>
+                <a href="htmlcssonly.html">HTML and CSS only</a>
+			    <a href="games.html">Javascript games</a>
+                <a href="js_notebook.html">JavaScript notebook</a>
+                
+                <a href="java_notebook.html">Java notebook</a>
+                <a href="databases_notebook.html">Databases notebook</a>
+                <a href="django_notebook.html">Django notebook</a>
+                <a href="http://www.studiopinestreet.com" target="_blank">Python/Django</a>
+			</div>
+		</div>
+	</div>
+  
+    <div class="container-notebookpage">
+        <h1>Django notebook</h1><br>
+            
+        <h3>General stuff</h3>
+        <p class='green'><b>Getting started (Python 3 and Django 2)</b></p>
+        <div class='indent'>
+            <p>python get-pip.py<span style='color:grey;'> # install pip</span></p>
+            <p>pip install virtualenv<span style='color:grey;'> # install virtualenv</span></p>
+            <p>path\python virtualenv myvenv<span style='color:grey;'> # make a virtual environment</span></p>
+            <p>myvenv\scripts\activate<span style='color:grey;'> # start up the virtual environment</span></p>
+            <p>pip install django<span style='color:grey;'> # install django</span></p>
+            <p>django-admin startproject mysite<span style='color:grey;'> # start a new django project</span></p>
+            <p>python manage.py runserver<span style='color:grey;'> # check in browser that site is working</span></p>
+        </div><br>
+        
+        <p class='green'><b>Create an app</b></p>
+        <div class='indent'>
+            <p>python manage.py startapp myapp<span style='color:grey;'> # start a new app</span></p>
+            <p><span style='color:grey;'> # add myapp to app list in settings.py</span></p>
+            <p><span style='color:blue;'>path('myapp/', include(('myapp.urls', 'myapp'), namespace='myapp')),</span><span style='color:grey;'> # include link to app url file in main urls.py</span></p>
+            <p><span style='color:grey;'> # make urls.py file inside myapp's folder</span></p>
+            <p><span style='color:blue;'>path('myapp/', MyAppView.as_view(), name='url_name'),</span><span style='color:grey;'> # include link to a view</span></p>
+            <p><span style='color:blue;'>class MyView(TemplateView):</span><span style='color:grey;'> # make a view in views.py</span></p>
+            <p><div class='indentDouble'><span style='color:blue;'>template name = "my_template_name.html"</div></p>
+            <p>class MyModel(models.Model):</span><span style='color:grey;'> # in models.py, make a model for some data to show</span></p>
+            <p>python manage.py makemigrations<span style='color:grey;'> # prepare database design changes for migration</span></p>
+            <p>python manage.py migrate<span style='color:grey;'> # migrate the (new parts of the) database model</span></p>
+        </div><br>
+        
+        <p class='green'><b>Python shell</b></p>
+        <div class='indent'>
+            <p>python manage.py shell<span style='color:grey;'> # start the shell</span></p>
+            <p><span style='color:orange;'>from my_app.models import MyClass</span><span style='color:grey;'> # import a model class</span></p>
+            <p><span style='color:orange;'>MyClass.objects.all()</span><span style='color:grey;'> # shows all objects of that class</span></p>
+            <p><span style='color:orange;'>q = MyClass(field1="Some text.", field2=24)</span><span style='color:grey;'> # prepare a new row</span></p>
+            <p><span style='color:orange;'>q.save()</span><span style='color:grey;'> # save row to the database</span></p>
+        </div><br>
+    </div><br>
+        
+           
+    <div id="footer">
+        thx for watching
+	</div>
+	</body>
+    <script src="scripts/common_script.js"></script>
+    <script src='scripts/js_notebook.js'></script>
+  </body>

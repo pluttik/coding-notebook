@@ -20,9 +20,11 @@
                 <a href="htmlcssonly.html">HTML and CSS only</a>
 			    <a href="games.html">Javascript games</a>
                 <a href="js_notebook.html">JavaScript notebook</a>
+                
                 <a href="java_notebook.html">Java notebook</a>
                 <a href="databases_notebook.html">Databases notebook</a>
-                <a href="https://pinestreetfonts.herokuapp.com" target="_blank">Python/Django</a>
+                <a href="django_notebook.html">Django notebook</a>
+                <a href="http://www.studiopinestreet.com" target="_blank">Python/Django</a>
 			</div>
 		</div>
 	</div>
@@ -56,6 +58,13 @@
         <p>(3NF) - no non-key values based on other non-key values</p>
         </div><br>
         
+        <p class='green'><b>Constraints ('integriteitsregels')</b></p>
+        <div class='indent'>
+        <p>Unicity (uniciteitsregel)<span style='color:gray;'> // values have to be unique</span></p>
+        <p>Totality (totaliteitsregel)<span style='color:gray;'> // values have to be NOT NULL</span></p>
+        <p>Referential (referentieel)<span style='color:gray;'> // child values in a relationship have to refer to existing parent value</span></p>
+        </div><br>
+        
         <h3>SQL</h3>
         <p class='green'><b>Simple queries</b></p>
         <div class='indent'>
@@ -69,12 +78,28 @@
         <p><span style='color:red;'>INSERT INTO</span> MyTable <span style='color:red;'>VALUES</span> (myIntValue, 'myCharValue', NULL);</p>
         </div><br>
         
+        <p class='green'><b>LIKE operator</b></p>
+        <div class='indent'>
+        <p>SELECT * FROM MyTable WHERE myColumn <span style='color:red;'>LIKE</span> 's%';<span style='color:gray;'> // starts with s or S</span></p>
+        <p><span style='color:red;'>_</span><span style='color:gray;'> // one character</p>
+        <p><span style='color:red;'>%</span><span style='color:gray;'> // zero or more characters</p>
+        <p>SELECT * FROM MyTable WHERE myColumn LIKE '%s' <span style='color:red;'>AND</span> myOtherColumn LIKE 's%'<span style='color:gray;'> // combine two LIKEs</p>
+        </div><br>
+                
         <p class='green'><b>Queries across tables</b></p>
         <div class='indent'>
         <p><span style='color:gray;'>// inner join</span>
         <p>SELECT * FROM MyTable, MyOtherTable WHERE MyTable.myColumn = MyOtherTable.myOtherColumn;</p>
         <p>SELECT * FROM MyTable <span style='color:red;'>JOIN</span> MyOtherTable <span style='color:red;'>ON</span> MyTable.myColumn = MyOtherTable = myOtherColumn;</p>
         <p><span style='color:green;'>SELECT * FROM MyTable1</span> <span style='color:purple;'>JOIN MyTable2 ON MyTable1.myColumn = MyTable2 = myColumn</span> <span style='color:orange;'>JOIN MyTable3 ON MyTable2.myColumn = MyTable3.myColumn;</span></p>
+        
+        <p><span style='color:gray;'>// self join: copy table and alias necessary</span>
+        <p>SELECT X.nr, X.name aliasXName, Y.name aliasYName FROM MyTable X JOIN MyTable Y ON X.nr = Y.nr</p>
+        
+        <p><span style='color:gray;'>// left/right join (keyword outer is optional)</span>
+        <p><span style='color:gray;'>// returns everything from X plus all that matches from Y</span>
+        <p>SELECT X.myColumn, Y.myColumn FROM X <span style='color:red;'>LEFT JOIN</span> Y ON X.nr = Y.nr</p>
+        <p>SELECT X.myColumn, Y.myColumn FROM Y <span style='color:red;'>RIGHT JOIN</span> X ON X.nr = Y.nr<span style='color:gray;'> // returns the same</span></p>
         </div><br>
         
         <p class='green'><b>Aliases</b></p>
@@ -83,25 +108,76 @@
         <p> SELECT myUglyColumnName <span style='color:red;'>myPrettyAlias</span> FROM MyTable;</p>
         </div><br>
         
-        <p class='green'><b>Script for new schema</b></p>
+        <p class='green'><b>Aggregation and ordering</b></p>
         <div class='indent'>
-        <p>CREATE SCHEMA MySchema;</p>
-        CREATE TABLE MySchema.MyTable<br>
+        <p>SELECT * FROM MyTable <span style='color:red;'>ORDER BY</span> myColumn DESC<span style='color:gray;'> // descending, ASC is default</span></p>
+        <p>SELECT <span style='color:red;'>COUNT</span>(*) FROM MyTable;<span style='color:gray;'> // returns number of rows, similar functions are SUM, AVG, MAX, MIN, VAR, STD</span></p>
+        <p>SELECT COUNT(myColumn) FROM MyTable;<span style='color:gray;'> // returns number of rows that are NOT NULL for myColumn</span></p>
+        <p>SELECT myColumn, COUNT(*) FROM MyTable <span style='color:red;'>GROUP BY</span> myColumn;<span style='color:gray;'> // returns number of rows per group</span></p>
+        <p><span style='color:gray;'>// note that you cannot group by another column than the one(s) you aggregate by
+        <p>SELECT myColumn FROM MyTable GROUP BY myColumn <span style='color:red;'>HAVING</span> SUM(myOtherColumn > 10);<span style='color:gray;'> // with aggregation use HAVING not WHERE</span></p>
+        </div><br>
+        
+        <p class='green'><b>Subqueries</b></p>
+        <div class='indent'>
+        <p><span style='color:gray;'> // if there is only one result</span></p>
+        <p>SELECT myColumn1 FROM MyTable1 WHERE myColumn2 = (SELECT myColumn2 FROM MyTable2 WHERE myColumn3 <span style='color:red;'>=</span> 'string');</p>
+        <p><span style='color:gray;'> // if more than one result is possible</span></p>
+        <p>SELECT myColumn1 FROM MyTable1 WHERE myColumn2 = (SELECT myColumn2 FROM MyTable2 WHERE myColumn3 <span style='color:red;'>IN</span> ('string1', 'string2'));</p>
+        </div><br>
+        
+        <p class='green'><b>Procedures, functions and triggers</b></p>
+        <div class='indent'>
+        <p><span style='color:gray;'>// a stored procedure has no return values</span</p>
+        <p>DELIMITER $$<br>
+        CREATE <span style='color:red;'>PROCEDURE</span> myProcedure (IN myInt INT)<br>
+        BEGIN<br>
+        <div class='indentDouble'>UPDATE myTable<br>
+        SET myColumn = myColumn + myInt<br>
+        WHERE myColumn = myInt + 1;</div><br>
+        END $$<br>
+        DELIMITER ;</p>
+        
+        <p><span style='color:gray;'>// a stored function does have return values</span></p>
+        <p>DELIMITER $$<br>
+        CREATE <span style='color:red;'>FUNCTION</span> myFunction (myInt INT) <span style='color:red;'>RETURNS INT</span><br>
+        BEGIN<br>
+        <div class='indentDouble'>DECLARE result INT;<br>
+        SET result = 0;<br>
+        SELECT something <span style='color:red;'>INTO result</span> FROM somewhere;<span style='color:gray;'> // inside procedures and functions you can use everything from the schema</span><br>
+        RETURN result;</div><br>
+        END $$<br>
+        DELIMITER ;</p>
+        
+        <p><span style='color:gray;'>// a trigger responds to an event with a sequence of actions</span></p>
+        <p><span style='color:gray;'>// mySQL has BEFORE/AFTER and INSERT/UPDATE/DELETE triggers. These are all FOR EACH ROW</span></p>
+        <p>DELIMITER $$<br>
+        CREATE <span style='color:red;'>TRIGGER</span> myTable_AFTER_INSERT <span style='color:red;'>AFTER INSERT</span> ON myTable <span style='color:red;'>FOR EACH ROW</span><br>
+        BEGIN<br>
+        <div class='indentDouble'>
+        INSERT INTO MyTable VALUES (1,<span style='color:red;'>NEW</span>.myColumn);<span style='color:gray;'> // use NEW and OLD keywords</span><br>
+        <span style='color:red;'>CALL</span> MyProcedure(NEW.myColumn);<span style='color:gray;'> // run procedure from a trigger</span><br>
+        </div><br>
+        END $$<br>
+        DELIMITER ;</p>
+        </div><br>
+        
+        <p class='green'><b>Database-level procedures</b></p>
+        <div class='indent'>
+        <p><span style='color:red;'>CREATE SCHEMA</span> MySchema;</p>
+        CREATE <span style='color:red;'>TABLE</span> MySchema.MyTable<br>
         (<br>
         <div class='indentDouble'>myColumn smallint NOT NULL,<br>
         myOtherColumn varchar(45) NOT NULL,<br>
         CONSTRAINT MyTable_pkey PRIMARY KEY (myColumn, myOtherColumn)<br>
         </div>
         );</p>
+        <p>CREATE <span style='color:red;'>VIEW</span> MyView AS SELECT myColumn1, myColumn2 WHERE condition;</p>
+        <p>CREATE <span style='color:red;'>INDEX</span> myColumn1_myColumn2 ON MyTable (myColumn1, myColumn2);</p>
+        <p><span style='color:red;'>SHOW</span> CREATE TABLE MyTable;<span style='color:gray;'> // shows all columns of and constraints on a table</span></p>
+        <p><span style='color:red;'>ALTER</span> TABLE myTable ...<span style='color:gray;'> // change aspects of a table</span></p>
+        <p><span style='color:red;'>DROP</span> TABLE myTable<span style='color:gray;'> // delete entire table</span></p>
         </div><br>
-        
-        <p class='green'><b>LIKE operator</b></p>
-        <div class='indent'>
-        <p>SELECT * FROM MyTable WHERE myColumn <span style='color:red;'>LIKE</span> 's%';<span style='color:gray;'> // starts with s or S</span></p>
-        <p><span style='color:red;'>_</span><span style='color:gray;'> // one character</p>
-        <p><span style='color:red;'>%</span><span style='color:gray;'> // zero or more characters</p>
-        <p>SELECT * FROM MyTable WHERE myColumn LIKE '%s' <span style='color:red;'>AND</span> myOtherColumn LIKE 's%'<span style='color:gray;'> // combine two LIKEs</p>
-        </div>
         
         </div>
     </div><br>

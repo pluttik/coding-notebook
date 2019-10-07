@@ -20,9 +20,11 @@
                 <a href="htmlcssonly.html">HTML and CSS only</a>
 			    <a href="games.html">Javascript games</a>
                 <a href="js_notebook.html">JavaScript notebook</a>
+                
                 <a href="java_notebook.html">Java notebook</a>
                 <a href="databases_notebook.html">Databases notebook</a>
-                <a href="https://pinestreetfonts.herokuapp.com" target="_blank">Python/Django</a>
+                <a href="django_notebook.html">Django notebook</a>
+                <a href="http://www.studiopinestreet.com" target="_blank">Python/Django</a>
 			</div>
 		</div>
 	</div>
@@ -42,7 +44,8 @@
             System.out.printf("This string %-12s", myFloat);<span style='color:grey;'>//minus means left align</span></p>
             double div = 5/2;<span style='color:grey;'>//result is 2 because both are int</span></p>
             <p>double div = 5/2.0;<span style='color:grey;'>//result is 2.5 because at least one is a double</span></p>
-            <p>int approx = (int) exact;<span style='color:grey;'>//<span style='color:red;'>casting</span> the double exact into an int approx</span></p>
+            <p>int approx = (int) exact;<span style='color:grey;'>//<span style='color:red;'>typecasting</span> the double exact into an int approx</span></p>
+            <p>if (myVariable <span style='color:red;'>instanceof</span> MyClass) {} <span style='color:grey;'>//testing if a variable is of a certain type</span></p>
             <p>javac HelloWorld.java<span style='color:grey;'>//<span style='color:red;'>compile</span> program</span></p>
             <p>java HelloWorld<span style='color:grey;'>//<span style='color:red;'>run</span> program (no .class file extension)</span></p>
             <p>jshell<span style='color:grey;'>//<span style='color:red;'>shell</span> run java from command prompt</span></p>
@@ -63,6 +66,7 @@
             <p>int letters = myString.length();</p>
             <p>myString = myString.toUpperCase();</p>
             <p>myString = myString + "0123";</p>
+            <p>String[] myArray = myString.<span style='color:red;'>split</span>(",");</p>
             <p><span style='color:red;'>double</span> myFloat = 1.25;</p>
             <p><span style='color:red;'>char</span> myCharacter = '3';<span style='color:grey;'>//for single characters, NB. single quote</span></p>
             <p><span style='color:red;'>boolean</span> myBoolean = true;</p>
@@ -86,6 +90,9 @@
                 <td>a[1][1]</td>
               </tr>
             </table>
+            <p><span style='color:red;'>ArrayList</span>&lt;MyClass&gt; myArrayList = new ArrayList&lt;&gt;;</p>
+            <p>myArrayList.<span style='color:red;'>add</span>();</p>
+            <p>myArrayList.<span style='color:red;'>size</span>();</p>
         </div><br>
         
         <h3>Control flow</h3>
@@ -98,7 +105,6 @@
             } else {<br>
                 <span class='indentDouble'>action3;");</span><br>
             }</p>
-            <br>
             <p>switch(myVariable){<br>
                 <span class='indentDouble'>case 101: answer = 'x';</span><br>
                 <span class='indentTriple'>break;</span><br>
@@ -107,10 +113,10 @@
                 <span class='indentDouble'>default: answer = 'a';</span><br>
                 <span class='indentTriple'>break;</span><br>
             }</p>
-            <br>
-            <p>while (condition) {} <span style='color:grey;'>//executed 0 or more times</span></p><br>
-            <p>do {} while (condition) <span style='color:grey;'>//executed 1 or more times</span></p><br>
-            <p>for (int i=1; i &lt X; i++) {} <span style='color:grey;'>//executed a known number of times</span></p>
+            <p>while (condition) {} <span style='color:grey;'>//executed 0 or more times</span></p>
+            <p>do {} while (condition) <span style='color:grey;'>//executed 1 or more times</span></p>
+            <p>for (int i=1; i &lt X; i++) {} <span style='color:grey;'>//executed a known number of times, with counter</span></p>
+            <p>for (MyClass myVariable: myArray) {} <span style='color:grey;'>//for each, with counter</span></p>
         </div><br>
 
         <p class='green'><b>Logicals</b></p>
@@ -120,31 +126,43 @@
             <p>&& <span style='color:grey;'>evaluates before </span>||</p>
         </div><br>
         
-        <p class='green'><b>Functions</b></p>
+        <p class='green'><b>Methods</b></p>
         <div class='indent'>
-            <p>public void myFunction(int myInt, String myString) {}<span style='color:grey;'>//an empty function</span></p>
+            <p>public void myFunction(int myInt, String myString) {}<span style='color:grey;'>//an empty method</span></p>
             <p><span style='color:red;'>public</span> is an access modifier</p>
             <p><span style='color:red;'>void</span> is a return type</p>
             <p><span style='color:red;'>int myInt, String myString</span> are arguments</p>
-            <p>public boolean myFunction() {boolean myBoolean = true; return myBoolean}<span style='color:grey;'>//an empty function that returns a boolean</span></p>
+            <p>public boolean myFunction() {boolean myBoolean = true; return myBoolean}<span style='color:grey;'>//an empty method that returns a boolean</span></p>
             <p><span style='color:red;'>myBoolean</span> is a return value</p>
         </div><br>
-        
+                
         <h3>Objects</h3>
+        
+        <p class='green'><b>Object Oriented Programming</b></p>
+        <div class='indent'>
+            <p><span style='color:red;'>abstraction</span></p>
+            <p><span style='color:red;'>encapsulation</span></p>
+            <p><span style='color:red;'>polymorphism</span></p>
+            <p><span style='color:red;'>inheritance</span></p>
+            <div class='indent'>
+                <p><span style='color:red;'><i>abstract classes</i></span></p>
+                <p><span style='color:red;'><i>interface</i></span></p>
+            </div>
+        </div><br>
+        
         <p class='green'><b>Classes</b></p>
         <div class='indent'>
         <p><span style='color:grey;'> //this goes in its own file</span><br>
-        int number;<br><br>
-        public class Number { <br>
-        <span class='indentDouble'>int inputNumber;</span><br><br>
-        <span class='indentDouble'>public Number (int inputNumber) {</span><span style='color:grey;'>  //this in the constructor</span><br>
-        <span class='indentTriple'>this.number = inputNumber;</span><br>
+        public <span style='color:red;'>class</span> Number { <br>
+        <span class='indentDouble'>int number;</span><br><br>
+        <span class='indentDouble'>public Number (int number) {</span><span style='color:grey;'>  //this is the constructor</span><br>
+        <span class='indentTriple'>this.number = number;</span><br>
         <span class='indentDouble'>}</span><br><br>
         <span class='indentDouble'>public void changeNumber(int newNumber) { </span><span style='color:grey;'> //this is a method signature</span><br>
         <span class='indentTriple'>this.number = newNumber;</span><br>
         }<br><br>
         <span style='color:grey;'> //this goes inside class Main</span><br>
-        Number myNumber = new Number(inputNumber: 22);<br><br>
+        Number myNumber = new Number(22);<br><br>
         myNumber.changeNumber(23); 
         </p><br>
         </div>
@@ -168,7 +186,7 @@
         <div class='indent'>
         <p><span style='color:grey;'> //enforce fields or methods on a class</span></p>
         <p><span style='color:grey;'> //this goes in its own file</span><br>
-        public interface Pet {<br>
+        public <span style='color:red;'>interface</span> Pet {<br>
         <span class='indentDouble'>void play();</span><br>
         }</p>
         <p><span style='color:grey;'> //this goes inside class Dog</span><br>
@@ -190,6 +208,76 @@
         p = new Dog;<br>
         </p>
         <br></div>
+        
+        <p class='green'><b>Abstract classes</b></p>
+        <div class='indent'>
+        <p><span style='color:grey;'> //classes that can be extended by other classes but not instantiated themselves</span><br>
+        <p>public <span style='color:red;'>abstract</span> class MyClass() {}</span><br>
+        <p>public class MyOtherClass extends MyAbstractClass() {}<span style='color:grey;'> //inherits all attributed and methods</span><br>
+        </div><br>
+        
+        <p class='green'><b>Exceptions</b></p>
+        <div class='indent'>
+        <p><span style='color:grey;'> //this goes inside class MyClass</span><br>
+        public void setSomething(int something) <span style='color:red;'>throws</span> IllegalArgumentException {<br>
+        <span class='indentDouble'>if (something < 0) {</span><br>
+        <span class='indentTriple'><span style='color:red;'>throw</span> new IllegalArgumentException("My warning.");</span><br>
+        <span class='indentDouble'>}</span><br>
+        <span class='indentDouble'>this.something = something;</span><br>
+        }<br>
+        </p>
+        <p><span style='color:grey;'> //this goes in main</span><br>
+        <span style='color:red;'>try</span> {<br>
+        <span class='indentDouble'><span style='color:grey;'>// code executed until error</span></span><br>
+        }<br>
+        <span style='color:red;'>catch</span> (IllegalArgumentException myMistake) {<br>
+        <span class='indentDouble'><span style='color:grey;'>// code executed if error</span></span><br>
+        }<br>
+        <span style='color:red;'>finally</span> {<br>
+        <span class='indentDouble'><span style='color:grey;'>// code executed always</span></span><br>
+        }<br>
+        </div><br>
+        
+        <h3>I / O</h3>
+    
+        <p class='green'><b>Scanner</b></p>
+        <div class='indent'>
+        <p><span style='color:red;'>Scanner</span> myinput = new Scanner(System.in);<span style='color:grey;'>//open system scanner for user input</span></p>
+        <p>System.out.print("Give input: ");<span style='color:grey;'> //ask for input</span></p>
+        <p>String myInput = myinput.nextLine();<span style='color:grey;'> //wait, in this case for a String and a \n</span></p>
+        <p>muinput.next();<span style='color:grey;'> //may be necessary with .nextInt() etc. which do not include \n</span></p>
+        </div><br>
+        
+        
+        <p class='green'><b>Files</b></p>
+        <div class='indent'>
+        <p><span style='color:grey;'>//get data from a file (here .csv)</span></p>
+        <p><span style='color:red;'>File</span> myfile = new File("myfolder/myfile.csv");<br>
+        ArrayList&lt;MyClass&gt; allThings = new ArrayList&lt;&gt;();<br>
+        try {<br>
+        <span class='indentDouble'>Scanner myinput = new Scanner(myfile);</span><br>
+        <span class='indentDouble'>while (myinput.hasNextLine()) {</span><br>
+        <span class='indentDouble'><span style='color:grey;'> //put all fields into variables</span><br>
+        <span class='indentDouble'><span style='color:grey;'> //add to allThings list</span><br>
+        }<br>
+        catch(<span style='color:red;'>FileNotFoundException</span> error) {<span style='color:grey;'> //a checked error</span><br>
+        <span class='indentDouble'>System.out.println(error.getMessage());<br>
+        }
+        </p><br>
+        <p><span style='color:grey;'>//put data in a file </span></p>
+        <p>File myoutput = new File("myfolder/myfile.txt");<br>
+        try {<br>
+        <span class='indentDouble'><span style='color:red;'>PrintWriter</span> printWriter = new PrintWriter(myoutput);<br>
+        <span class='indentDouble'>printWriter.println(someText);<span style='color:grey;'> //write stuff to file</span></span>
+        <span class='indentDouble'>printWriter.close();</span><br>
+        }<br>
+       catch(<span style='color:red;'>FileNotFoundException</span> error) {<br>
+        <span class='indentDouble'>System.out.println(error.getMessage());</span><br>
+        }<br>
+        </p>
+        
+        </div><br>
+        
         <h3>Lambda</h3>
         <div class='indent'>
         <p><span style='color:grey;'>//anonymous functions, e.g. used for quick calculations</span></p>
