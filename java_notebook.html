@@ -19,8 +19,8 @@
 			    <a href="index.html">Home</a>
                 <a href="htmlcssonly.html">HTML and CSS only</a>
 			    <a href="games.html">Javascript games</a>
+                <a href="git_notebook.html">Git notebook</a>
                 <a href="js_notebook.html">JavaScript notebook</a>
-                
                 <a href="java_notebook.html">Java notebook</a>
                 <a href="databases_notebook.html">Databases notebook</a>
                 <a href="django_notebook.html">Django notebook</a>
@@ -169,16 +169,20 @@
         
         <p class='green'><b>Inheritance</b></p>
         <div class='indent'>
-        <p><span style='color:grey;'> //how to make a class with inheritance</span><br>
-        int number;<br><br>
-        public class Number <span style='color:red;'>extends SomeClass</span> { <br>
-        <span class='indentDouble'>int inputNumber;</span><br><br>
-        <span class='indentDouble'>public Number (int inputNumber) {</span><br>
-        <span class='indentTriple' style='color:red;'>super(inputNumber, parentArg: 8);</span><br>
-        <span class='indentTriple'>this.number = inputNumber;</span><br>
+        <p><span style='color:grey;'> //make a parent class</span></p>
+        <p>public class MyString { <br>
+        <span class='indentDouble'><span style='color:red;'>protected</span> int myInt;</span><span style='color:grey;'> //protected means only available to its children</span><br>
+        <span class='indentDouble'>public MyString (String myString) {</span><span style='color:grey;'> //constructor</span><br>
+        <span class='indentTriple'>this.myString = myString;</span><br>
+        <span class='indentDouble'>}</span><br>
+        }</p><br>
+        <p><span style='color:grey;'> //make a child class that inherits</span></p>
+        <p>public class MyNumber <span style='color:red;'>extends</span> SomeClass { <br>
+        <span class='indentDouble'>public int myInt;</span><br><br>
+        <span class='indentDouble'>public MyNumber (String myString, int myInt) {</span><span style='color:grey;'> //constructor</span><br>
+        <span class='indentTriple' style='color:red;'>super</span>(myString);<br>
+        <span class='indentTriple'>this.myInt = myInt;</span><br>
         <span class='indentDouble'>}</span><br><br>
-        <span class='indentDouble'>public void changeNumber(int newNumber) { </span><br>
-        <span class='indentTriple'>this.number = newNumber;</span><br>
         }<br><br>
         </div>
         

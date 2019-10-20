@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+        <link rel='stylesheet' type='text/css' href='css/js_notebook.css'>
+        <link rel='stylesheet' type='text/css' href="css/stylesheet.css"/>
+    </head>
+    <body>
+    <div id="header">
+		<div class="logo"></div>
+		<div class="pagetitle">
+		Web development test site
+		</div>
+		<div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#x2630;</button>
+            <div id="myDropdown" class="dropdown-content">
+			    <a href="index.html">Home</a>
+                <a href="htmlcssonly.html">HTML and CSS only</a>
+			    <a href="games.html">Javascript games</a>
+                <a href="git_notebook.html">Git notebook</a>
+                <a href="js_notebook.html">JavaScript notebook</a>
+                <a href="java_notebook.html">Java notebook</a>
+                <a href="databases_notebook.html">Databases notebook</a>
+                <a href="django_notebook.html">Django notebook</a>
+                <a href="http://www.studiopinestreet.com" target="_blank">Python/Django</a>
+			</div>
+		</div>
+	</div>
+  
+    <div class="container-notebookpage">
+        <h1>Git notebook</h1><br>
+            
+        <h3>General stuff</h3>
+        <p class='green'><b>Getting started</b></p>
+        <div class='indent'>
+            <p>working directory</p>
+            <p>staging area <span style='color:grey;'>aka</span> index</p>
+            <p>repository</p>
+            <p>HEAD is the latest snapshot</p>
+        </div><br>
+        
+        <p class='green'><b>Basic workflow</b></p>
+        <div class='indent'>
+            <p><span style='color:red;'>git init</span></p>
+            <p>git <span style='color:red;'>add</span></p>
+            <p>git <span style='color:red;'>commit</span> -m "my new code does so-and-so"</p>
+        </div><br>
+        
+        <p class='green'><b>Check process</b></p>
+        <div class='indent'>
+            <p>git <span style='color:red;'>status</span><span style='color:grey;'> //show changes in staging area relative to HEAD</span></p>
+            <p>git <span style='color:red;'>log</span><span style='color:grey;'> //show past commits relative to HEAD</span></p>
+            <p>git <span style='color:red;'>checkout</span> my_commit_number<span style='color:grey;'> //go back to commit number my_commit_number</span></p>
+            <p>git <span style='color:red;'>checkout</span> master<span style='color:grey;'> //go back to HEAD</span></p>
+            <p>git <span style='color:red;'>reset --hard</span> my_commit_number<span style='color:grey;'> //go back to my_commit_number <b>and lose everything</b> after</span></p>
+        </div><br>
+        
+        <p class='green'><b>Branching</b></p>
+        <div class='indent'>
+            <p>git <span style='color:red;'>branch</span> my_new_branch<span style='color:grey;'> //create branch, gets its own HEAD</span></p>
+            <p>git <span style='color:red;'>checkout</span> my_new_branch<span style='color:grey;'> //switch to branch</span></p>
+            <p>git checkout<span style='color:red;'> -b</span> my_new_branch<span style='color:grey;'> //create and switch to branch</span></p>
+            <p>git checkout master<span style='color:grey;'> //move to master for merging</span><br>
+             git <span style='color:red;'>merge</span> my_new_branch<span style='color:grey;'> //merge new branch into master</span></p>
+            <p>git branch <span style='color:red;'>-d</span> my_new_branch<span style='color:grey;'> //delete the label to branch my_new_branch (commits remain)</span></p>
+            <br>
+            <p><b>merge conflicts</b><span style='color:grey;'> //git checks for conflicts <b>per line</b>: one, the other or a combination</span></p>
+        </div><br>
+        
+        <h3>Remote repository</h3>
+        <p class='green'><b>Main commands</b></p>
+        <div class='indent'>
+        <p>git <span style='color:red;'>pull</span><span style='color:grey;'> //with merge of your local branch (your working area)</span></p>
+        <p>git <span style='color:red;'>fetch</span><span style='color:grey;'> //no merge yet</span></p>
+        <p>git <span style='color:red;'>push</span></p>
+        </div><br>
+        
+        <p class='green'><b>Workflow</b></p>
+        <div class='indent'>
+        <p><span style='color:grey;'>make new feature on new clone:</span></p>
+        <p>clone > branch > checkout branch > local commits > pull > <i>resolve merge conflicts</i> > push</p>
+        <p><span style='color:grey;'>while working on feature, stay up to date with remote:</span></p>
+        <p><i>checkout branch</i> > git merge master</p>
+        <p><span style='color:grey;'>make new feature on existing repository:</span></p>
+        <p>pull > branch > checkout branch > add > commit > fetch master > checkout master > merge branch > <i>resolve merge conflicts</i> > <i>test+fix</i> > push</p>
+        <p><span style='color:grey;'>go back to earlier commit in a branch:</span></p>
+        <p>checkout commit_nr > branch new_branch</p>
+        </div><br>
+        
+    </div><br>
+        
+           
+    <div id="footer">
+        thx for watching
+	</div>
+	</body>
+    <script src="scripts/common_script.js"></script>
+    <script src='scripts/js_notebook.js'></script>
+  </body>
