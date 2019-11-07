@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+        <link rel='stylesheet' type='text/css' href='css/js_notebook.css'>
+        <link rel='stylesheet' type='text/css' href="css/stylesheet.css"/>
+    </head>
+    <body>
+    <div id="header">
+		<div class="logo"></div>
+		<div class="pagetitle">
+		Software development test site and notebooks
+		</div>
+		<div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#x2630;</button>
+            <div id="myDropdown" class="dropdown-content">
+			    <a href="index.html">Home</a>
+                <a href="htmlcssonly.html">HTML and CSS only</a>
+			    <a href="games.html">Javascript games</a>
+                <a href="git_notebook.html">Git notebook</a>
+                <a href="js_notebook.html">JavaScript notebook</a>
+                <a href="java_notebook.html">Java notebook</a>
+                <a href="databases_notebook.html">Databases notebook</a>
+                <a href="testing_notebook.html">Testing notebook</a>
+                <a href="django_notebook.html">Django notebook</a>
+                <a href="http://www.studiopinestreet.com" target="_blank">Python/Django</a>
+			</div>
+		</div>
+	</div>
+  
+    <div class="container-notebookpage">
+        <h1>Testing notebook</h1><br>
+            
+        <h3>General stuff</h3>
+        <p class='green'><b>Setting up in Java11</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>// use JUnit5</span></p>
+            <p><span style='color:grey;'>// start with one test class per code class</span></p>
+            <p><span style='color:grey;'>// in a directory 'test' sister to 'main', children of 'src'</span></p>
+            <p><span style='color:grey;'>// basic test method structure:</span></p>
+            <p class='indentDouble'><span style='color:grey;'>// Arrange</span></p>
+            <p class='indentDouble'><span style='color:grey;'>// Act</span></p>
+            <p class='indentDouble'><span style='color:grey;'>// Assert</span></p>
+            
+        </div><br>
+
+        <h3>Helpful things</h3>
+        <p class='green'><b>Fixtures in JUnit5</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>// Fixtures are declared inside a test class and build a known and fixed environment so that test results are repeatable.</span></p>
+            <p>@BeforeAll<span style='color:grey;'> // run once before all tests</span></p>
+            <p>@BeforeEach<span style='color:grey;'> // run before each test</span></p>
+            <p>@Test<span style='color:grey;'> // test</span></p>
+            <p>@AfterEach<span style='color:grey;'> // run after each test</span></p>
+            <p>@AfterAll<span style='color:grey;'> // run once after all tests</span></p>
+            <p><span style='color:grey;'> // N.B. @BeforeAll and @AfterAll are <span style='color:red;'>static</span> and run before/after instantiation of test class.</span></p>
+        </div><br>
+        
+        <p class='green'><b>Assertions in JUnit5</b></p>
+        <div class='indent'>
+            <p>import static org.junit.jupiter.api.Assertions.*;</p>
+            <p>assertEquals(expected, actual, optional double delta, optional message)<span style='color:grey;'></span></p>
+            <p class='indentDouble'><span style='color:grey;'>// compares using .equals()</span></p>
+            <p class='indentDouble'><span style='color:grey;'>// the double delta is for specifying precision when comparing expected and actual doubles</span></p>
+            <p>assertSame(expected, actual, optional message)<span style='color:grey;'></span></p>
+            <p class='indentDouble'><span style='color:grey;'>// compares using ==</span></p>
+            <p>assertTrue(boolean condition)<span style='color:grey;'></span></p>
+            <p>assertFalse(boolean condition)<span style='color:grey;'></span></p>
+            <p>assertThrows(MyException.class, executable code)<span style='color:grey;'></span></p>
+            <p class='indentDouble'><span style='color:grey;'>// enter code e.g. as lambda expression</span></p>
+            <p><span style='color:grey;'>// ...etc</span></p>
+        </div><br>
+        
+        <p class='green'><b>Assertion framework: <i>AssertJ</i></b></p>
+        <div class='indent'>
+        <p><span style='color:grey;'>// scaling testing for large and complex applications</span></p>
+        <p><span style='color:grey;'>// other frameworks include Hamcrest and Truth</span></p>
+        <p>import static org.assertj.core.api.Assertions.*;</p>
+        <p>assertThat(some Object).isEqualTo(some value)<span style='color:grey;'> // the available methods depend on the Object type</span></p>
+        <p>assertThat(some StringSet).contains(some String)<span style='color:grey;'> // example of type dependency</span></p>
+        <p><span style='color:grey;'>// for detailed documentation see <a href='https://assertj.github.io/doc/'>assertj.github.io/doc/</a></p>
+        </div><br>
+        
+        <p class='green'><b>Mocking framework: <i>Mockito</i></b></p>
+        <div class='indent'>
+        <p><span style='color:grey;'>// testing for applications with external dependencies, e.g. databases</span></p>
+        <p><span style='color:grey;'>// other frameworks include jMock and EasyMock</span></p>
+        <p><span style='color:grey;'>// Test Doubles, aka Mocks:</span></p>
+            <p class='indentDouble'><span style='color:grey;'>// Dummy object <i>- substitutes real object, returns only for test</i></span></p>
+            <p class='indentDouble'><span style='color:grey;'>// Stub <i>- class that simulates the behaviour of software components (hand coded)</i></span></p>
+            <p class='indentDouble'><span style='color:grey;'>// Fake object <i>- has working implementations but also some shortcuts</i></span></p>
+            <p class='indentDouble'><span style='color:grey;'>// Spy <i>- like mock but with real methods</i></span></p>
+            <p class='indentDouble'><span style='color:grey;'>// Mock <i>- pre-programmed object to produce what is expected (generated)</i></span></p>
+        </div><br>
+           
+    <div id="footer">
+        thx for watching
+	</div>
+	</body>
+    <script src="scripts/common_script.js"></script>
+    <script src='scripts/js_notebook.js'></script>
+  </body>
