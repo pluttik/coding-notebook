@@ -92,6 +92,7 @@
               </tr>
             </table>
             <p><span style='color:red;'>ArrayList</span>&lt;MyClass&gt; myArrayList = new ArrayList&lt;&gt;;</p>
+            <p><span style='color:red;'>Map</span>&lt;Key, Value&gt; myMap = new Map&lt;&gt;;</p>
             <p>myArrayList.<span style='color:red;'>add</span>();</p>
             <p>myArrayList.<span style='color:red;'>size</span>();</p>
         </div><br>
@@ -135,6 +136,7 @@
             <p><span style='color:red;'>int myInt, String myString</span> are arguments</p>
             <p>public boolean myFunction() {boolean myBoolean = true; return myBoolean}<span style='color:grey;'>//an empty method that returns a boolean</span></p>
             <p><span style='color:red;'>myBoolean</span> is a return value</p>
+            <p><span style='color:red;'>overloading</span> <span style='color:grey;'>//having two methods with the same name but different argument lists</span></p>
         </div><br>
                 
         <h3>Objects</h3>
@@ -172,27 +174,89 @@
         <div class='indent'>
         <p><span style='color:grey;'> //make a parent class</span></p>
         <p>public class MyString { <br>
-        <span class='indentDouble'><span style='color:red;'>protected</span> int myInt;</span><span style='color:grey;'> //protected means only available to its children</span><br>
-        <span class='indentDouble'>public MyString (String myString) {</span><span style='color:grey;'> //constructor</span><br>
+        <span class='indentDouble'><span style='color:red;'>protected</span> int myInt;</span><span style='color:grey;'> //protected means only available to its children</span></p>
+        <p><span class='indentDouble'>public MyString (String myString) {</span><span style='color:grey;'> //constructor</span><br>
         <span class='indentTriple'>this.myString = myString;</span><br>
         <span class='indentDouble'>}</span><br>
-        }</p><br>
-        <p><span style='color:grey;'> //make a child class that inherits</span></p>
+        </p>
+        <p><span class='indentDouble'>public void myMethod () {</span><span style='color:grey;'> //superclass method</span><br>
+        <span class='indentTriple'>body;</span><br>
+        <span class='indentDouble'>}</span><br>
+        }</p>
+        <br>
+        
+        <p><span style='color:grey;'> //make a child class that inherits (NB. only one extension per class)</span></p>
         <p>public class MyNumber <span style='color:red;'>extends</span> SomeClass { <br>
         <span class='indentDouble'>public int myInt;</span><br><br>
         <span class='indentDouble'>public MyNumber (String myString, int myInt) {</span><span style='color:grey;'> //constructor</span><br>
         <span class='indentTriple' style='color:red;'>super</span>(myString);<br>
         <span class='indentTriple'>this.myInt = myInt;</span><br>
+        <span class='indentDouble'>}</span></p>
+        <p><span class='indentDouble' style='color:red'>@Override</span><br>
+        <span class='indentDouble'>public void myMethod () {</span><span style='color:grey;'> //override superclass method</span><br>
+        <span class='indentTriple'>different body;</span><br>
         <span class='indentDouble'>}</span><br><br>
         }<br><br>
         </div>
         
+        <p class='green'><b>Access levels in Java</b></p>
+        <div class='indent'>
+        <table style='background-color:#f1f1c1;' cellspacing="10">
+          <tr>
+            <th>Modifier</th>
+            <th>Class</th>
+            <th>Package</th>
+            <th>Subclass</th>
+            <th>World</th>
+          </tr>
+          <tr>
+            <th>public</th>
+            <td>+</td>
+            <td>+</td>
+            <td>+</td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <th>protected</th>
+            <td>+</td>
+            <td>+</td>
+            <td>+</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>no modifier</th>
+            <td>+</td>
+            <td>+</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>private</th>
+            <td>+</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </table>
+        </div><br><br>
+        
+        <p class='green'><b>Polymorphism</b></p>
+        <div class='indent'>
+        <p><span style='color:grey;'> //processing objects of various types and classes through a uniform interface</span></p>
+        <p>Animal myCat = new Cat();<span style='color:grey;'> //myCat is both Animal and Cat (polymorphic)</span></p>
+        <p>myCat.meow();<span style='color:grey;'> //not possible yet</span></p>
+        <p>myCat = (Cat) myCat;<span style='color:grey;'> //<span style='color:red;'>casting</span> to Cat</span></p>
+        <p>myCat.meow();<span style='color:grey;'> //possible after casting</span></p>
+        </div><br>
+        
         <p class='green'><b>Interfaces</b></p>
         <div class='indent'>
-        <p><span style='color:grey;'> //enforce fields or methods on a class</span></p>
-        <p><span style='color:grey;'> //this goes in its own file</span><br>
+        <p><span style='color:grey;'> //100% abstract, enforces fields or methods on classes</span></p>
+        <p><span style='color:grey;'> //solves multiple inheritance problems</span></p>
+        <p><span style='color:grey;'> //e.g. useful when subclasses from different inheritance trees need to share methods</span></p>
+        <p><span style='color:grey;'> //this goes in its own file:</span><br>
         public <span style='color:red;'>interface</span> Pet {<br>
-        <span class='indentDouble'>void play();</span><br>
+        <span class='indentDouble'>void play();</span><span style='color:grey;'> //public abstract is implicit and typically omited</span><br>
         }</p>
         <p><span style='color:grey;'> //this goes inside class Dog</span><br>
         public class Dog <span style='color:red;'>implements Pet</span> {<br>
@@ -212,13 +276,17 @@
         Pet p;<br>
         p = new Dog;<br>
         </p>
+        <p><span style='color:grey;'> //multiple interfaces is possible:</span></p>
+        <p>public class Rat implements Pet, Animal</p>
         <br></div>
         
-        <p class='green'><b>Abstract classes</b></p>
+        <p class='green'><b>Abstract</b></p>
         <div class='indent'>
-        <p><span style='color:grey;'> //classes that can be extended by other classes but not instantiated themselves</span><br>
-        <p>public <span style='color:red;'>abstract</span> class MyClass() {}</span><br>
+        <p><span style='color:grey;'> //abstract classes can be extended by other classes but not instantiated (opposite: concrete)</span><br>
+        <p><span style='color:red;'>abstract</span> public class MyClass() {}</span><br>
         <p>public class MyOtherClass extends MyAbstractClass() {}<span style='color:grey;'> //inherits all attributed and methods</span><br>
+        <p><span style='color:grey;'> //abstract methods have to be overriden, have no body, and occur only in abstract classes</span><br>
+        <p><span style='color:red;'>abstract</span> public void myMethod();</span><br>
         </div><br>
         
         <p class='green'><b>Exceptions</b></p>
@@ -295,7 +363,38 @@
         public interface Test2 { boolean test1(Integer n); }<span style='color:grey;'> //in an interface file</span><br>
         Test2 myBoolean = n -> n%2 != 0;<span style='color:grey;'> //in main</span>
         </p>
+        </div><br>
+        
+        <h3>Advanced</h3>
+    
+        <p class='green'><b>Generic types</b></p>
+        <div class='indent'>
+        <p>public class MyGeneric&lt;<span style='color:red;'>X</span>&gt { private ArrayList&lt;X&gt myValues; }</p>
+        <p>MyGeneric&lt;<span style='color:red;'>String</span>&gt myGeneric = new MyGeneric&lt;&gt();<span style='color:grey;'> //X may be a String</span></p>
+        <p>MyGeneric&lt;<span style='color:red;'>Elephant</span>&gt myGeneric = new MyGeneric&lt;&gt();<span style='color:grey;'> //X may be anything</span></p>
+        </div><br>
+        
+        <p class='green'><b>Bounded types</b></p>
+        <div class='indent'>
+        <p>public class MyBoundedGeneric&lt;<span style='color:red;'>X extends Y</span>&gt { ... }<span style='color:grey;'> //limits X to subtypes of Y</span></p>
+        <p>public class MyBoundedGeneric&lt;<span style='color:red;'>X extends Comparable(Y)</span>&gt { ... }<span style='color:grey;'> //limits X to subtypes of Y that implement Comparable</span></p>
+        </div><br>
+        
+        <p class='green'><b>Collection/Collections/Iterators</b></p>
+        <div class='indent'>
+        <p><span style='color:red;'>Collection</span><span style='color:grey;'> // a super class with many iterable subclasses</span>
+        <p><span style='color:red;'>Collections</span><span style='color:grey;'> // a class with many static help methods for Collection</span>
+        <p><span style='color:red;'>Arrays</span><span style='color:grey;'> // a class with many static help methods for Array</span>
+        <p><span style='color:grey;'>// e.g., List, ArrayList, LinkedList, Queue, PriorityQueue, ArrayDeque, Set, HashSet </span></p>
+        <p>Iterator&lt;String&gt iter = myArrayList.iterator();<span style='color:grey;'> // because ArrayList is subclass of Collection, it has Iterator</span></p>
+        <p>while (iter.hasNext() { System.out.println(iter.next()); }<span style='color:grey;'> // hasNext and next are methods in Iterator</span></p>
+        <p><span style='color:grey;'>// distinguishing characteristics of subclasses of Collection:</span></p>
+        <div class='indentDouble'>
+        <p><span style='color:grey;'>// first-in-first-out vs. last-in-first-out</span></p>
+        <p><span style='color:grey;'>// duplicates possible vs. uniques only</span></p>
+        <p><span style='color:grey;'>// abstract vs. concrete</span></p>
         </div>
+        </div></p>
     </div><br>
         
            
