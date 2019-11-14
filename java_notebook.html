@@ -367,17 +367,36 @@
         
         <h3>Advanced</h3>
     
-        <p class='green'><b>Generic types</b></p>
+        <p class='green'><b>Generics</b></p>
         <div class='indent'>
-        <p>public class MyGeneric&lt;<span style='color:red;'>X</span>&gt { private ArrayList&lt;X&gt myValues; }</p>
-        <p>MyGeneric&lt;<span style='color:red;'>String</span>&gt myGeneric = new MyGeneric&lt;&gt();<span style='color:grey;'> //X may be a String</span></p>
-        <p>MyGeneric&lt;<span style='color:red;'>Elephant</span>&gt myGeneric = new MyGeneric&lt;&gt();<span style='color:grey;'> //X may be anything</span></p>
+        <p><span style='color:grey;'>// varargs: pass one, two or more items as parameters</span></p>
+        <p>private void printItems(String<span style='color:red;'>...</span> items) { fori sout item[i]; }</p>
+        <p>printItems("item1", "item2");</p>
+        <p><span style='color:grey;'>// generic type: the things with '&lt;' and '&gt;'</span></p>
+        <p>List<span style='color:red;'>&lt;String&gt;</span> myList = new ArrayList&lt;&gt;();
+        <p>List<span style='color:red;'>&lt;T&gt;</span><span style='color:grey;'> // here T is a <i>type variable</i></span></p>
+        <p><span style='color:grey;'>// generic class: </span></p>
+        <p>public class MyClass<span style='color:red;'>&lt;T&gt;</span> {<br>
+        <div class='indentDouble'>private <span style='color:red;'>T</span> myT;</div>
+        <div class='indentDouble'>public MyClass(<span style='color:red;'>T</span> myT) { this.myT = myT; }<span style='color:grey;'> // constructor</span></div>
+        <div class='indentDouble'>public <span style='color:red;'>T</span> getMyT() { return myT; }<span style='color:grey;'> // getter</span></div></p>
+        <p><span style='color:grey;'>// generic method: can be called with arguments of different types</span></p>
+        <p>public <span style='color:red;'>&lt;T&gt;</span> List&lt;T&gt; myMethod(){ return List&lt;T&gt; }<span style='color:grey;'> // generic type parameter specified before return type</span></p>
+        <p>public <span style='color:red;'>&lt;T,G&gt;</span> void myMethod(G[]){ body using T and G; }<span style='color:grey;'> // more generic types in a method is possible</span></p>
+        <p><span style='color:grey;'>// generic interface: </span></p>
+        <p>public interface MyInterface<span style='color:red;'>&lt;I&gt;</span> { void printSomething(<span style='color:red;'>I</span> i); }</p>
+        <p>@Override<span style='color:grey;'> // implements MyInterface&lt;String&gt;</span><br>
+        public void printSomething(String s) { sout(s); }</p>
         </div><br>
         
-        <p class='green'><b>Bounded types</b></p>
+        <p class='green'><b>Bounded type</b></p>
         <div class='indent'>
-        <p>public class MyBoundedGeneric&lt;<span style='color:red;'>X extends Y</span>&gt { ... }<span style='color:grey;'> //limits X to subtypes of Y</span></p>
-        <p>public class MyBoundedGeneric&lt;<span style='color:red;'>X extends Comparable(Y)</span>&gt { ... }<span style='color:grey;'> //limits X to subtypes of Y that implement Comparable</span></p>
+        <p><span style='color:grey;'>// bounded type: any subtype or supertype of indicated class</span></p>
+        <p>private class NumberClass&lt;<span style='color:red;'>T extends </span>Number&gt; { private T myNumber; etc }<span style='color:grey;'> // 'in' operation</span></p>
+        <p>private class UpperClass&lt;<span style='color:red;'>T super </span>SomeLowerClass&gt; { private T myUpperClass; etc }<span style='color:grey;'> // 'out' operation</span></p>
+        <p><span style='color:grey;'>// wildcards: any subtype or supertype of indicated class</span></p>
+        <p>private void printItems(List&lt;<span style='color:red;'>? extends </span>SomeSuperClass&gt; items) {}<span style='color:grey;'> // 'in' operation</span></p>
+        <p>private void addItems(List&lt;<span style='color:red;'>? super </span>SomeLowerClass&gt; items) {}<span style='color:grey;'> // 'out' operation</span></p>
         </div><br>
         
         <p class='green'><b>Collection/Collections/Iterators</b></p>
