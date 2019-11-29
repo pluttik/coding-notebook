@@ -78,7 +78,7 @@
         <p>git <span style='color:red;'>push</span></p>
         </div><br>
         
-        <p class='green'><b>Workflow</b></p>
+        <p class='green'><b>Basic workflow</b></p>
         <div class='indent'>
         <p><span style='color:grey;'>make new feature on new clone:</span></p>
         <p>clone > branch > checkout branch > local commits > pull > <i>resolve merge conflicts</i> > push</p>
@@ -88,6 +88,28 @@
         <p>pull > branch > checkout branch > add > commit > fetch master > checkout master > merge branch > <i>resolve merge conflicts</i> > <i>test+fix</i> > push</p>
         <p><span style='color:grey;'>go back to earlier commit in a branch:</span></p>
         <p>checkout commit_nr > branch new_branch</p>
+        </div><br>
+        
+        <p class='green'><b>Extended workflow</b></p>
+        <div class='indent'>
+        <p><span style='color:red;'>[developer]</span><span style='color:grey;'> make new feature:</span></p>
+        <p><span style='color:grey;'>1) start a new branch</span> git checkout -b new_feature_branch</p>
+        <p><span style='color:grey;'>2) build new feature</span></p>
+        <p><span style='color:grey;'>3) add files to commit (while still on branch)</span> git add .</p>
+        <p><span style='color:grey;'>4) commit changes (while still on branch)</span> git commit -m "message"</p>
+        <p><span style='color:grey;'>5) push new branch to remote</span> git push -u origin new_feature_branch</p>
+        <p><span style='color:grey;'>repeat 2 - 5 until new feature is ready for review</span></p>
+        <p><span style='color:grey;'>6) file a merge request on Gitlab for new_feature_branch</span></p>
+        <p><span style='color:grey;'>7) assign someone to review your code</span></p>
+        <br>
+        <p><span style='color:red;'>[code reviewer]</span><span style='color:grey;'> review new code:</span></p>
+        <p><span style='color:grey;'>1) create and checkout remote branch locally</span> git checkout -b new_feature_branch origin/new_feature_branch</p>
+        <p><span style='color:grey;'>2) review the new code locally, e.g. by running unit tests</span></p>
+        <p><span style='color:grey;'>3) if OK, continue, if not, give feedback to [developer]</span></p>
+        <p><span style='color:grey;'>4) checkout master</span> git checkout master</p>
+        <p><span style='color:grey;'>5) merge with master</span> git merge new_feature_branch</p>
+        <p><span style='color:grey;'>6) fix any merge conflicts</span></p>
+        <p><span style='color:grey;'>7) push to origin/master</span> git push</p>
         </div><br>
         
     </div><br>
