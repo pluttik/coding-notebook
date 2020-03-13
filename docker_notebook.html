@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+        <link rel='stylesheet' type='text/css' href='css/js_notebook.css'>
+        <link rel='stylesheet' type='text/css' href="css/stylesheet.css"/>
+    </head>
+    <body>
+    <div id="header">
+		<div class="logo"></div>
+		<div class="pagetitle">
+		Software development test site and notebooks
+		</div>
+		<div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#x2630;</button>
+            <div id="myDropdown" class="dropdown-content">
+			    <a href="index.html">Home</a>
+                <a href="htmlcssonly.html">HTML and CSS only</a>
+                <a href="js_notebook.html">JavaScript notebook</a>
+			    <a href="js_games.html">Javascript games</a>
+                <a href="react_notebook.html">React notebook</a>
+                <a href="git_notebook.html">Git notebook</a>
+                <a href="docker_notebook.html">Docker notebook</a>
+                <a href="databases_notebook.html">Databases notebook</a>
+                <a href="testing_notebook.html">Testing notebook</a>
+                <a href="java_notebook.html">Java notebook</a>
+                <a href="django_notebook.html">Django notebook</a>
+			</div>
+		</div>
+	</div>
+  
+    <div class="container-notebookpage">
+        <h1>Docker notebook</h1><br>
+            
+        <h3>Installing</h3>
+        <div class='indent'>
+            <p><span style='color:grey;'>// install via <a href="https://www.docker.com">www.docker.com</a></span></p>
+            <p><span style='color:grey;'>// on Windows, make sure Hyper-V is enabled</span></p>
+            <p><span style='color:grey;'>// A docker <span style='color:red;'>container</span> is an instance of a docker <span style='color:red;'>image</span></p>
+            <p><span style='color:grey;'>// Open source docker images can be found on <a href="https://hub.docker.com/">Docker hub</a></span></p>
+            <p><span style='color:grey;'>// start Docker Desktop and a command prompt</span></p>
+            <p>docker <span style='color:red;'>login</span></p>
+        </div><br>
+
+        <h3>Running docker</h3>
+        <p class='green'><b>General</b></p>
+        <div class='indent'>
+            <p>docker <span style='color:red;'>run</span> hello-world <span style='color:grey;'>// downloads image from docker hub and produces container from it</span></p>
+            <p>docker run <span style='color:red;'>-it</span> ubuntu bash <span style='color:grey;'>// keep STDIN open even if not attached, allocate a speudo linux terminal (tty)</span></p>
+            <p>docker <span style='color:red;'>ps -a</span> <span style='color:grey;'>// show all containers</span></p>
+            <p>docker ps <span style='color:red;'>-l</span> <span style='color:grey;'>// show most recently exited container</span></p>
+            <p>docker <span style='color:red;'>images</span> <span style='color:grey;'>// show all local images</span></p>
+            <p>docker run <span style='color:red;'>-d</span> -it ubuntu bash <span style='color:grey;'>// detach: container to come back to</span></p>
+            <p>docker <span style='color:red;'>attach</span> [container_name] <span style='color:grey;'>// come back to container</span></p>
+            <p><span style='color:red;'>ctrl-p ctrl-q</span> <span style='color:grey;'>// exits while keeping container running (ctrl-z ctrl-c on some Windows PC's)</span></p>
+            <p><span style='color:red;'>ctrl-d</span> <span style='color:grey;'>// exits with quiting process</span></p>
+            <p>docker <span style='color:red;'>exec</span> -it container_name bash <span style='color:grey;'>// adds a process to existing container</span></p>
+            <p><span style='color:grey;'>// deliberate mistake, e.g. docker run -d ubuntu bash -c "bad/path", then: </span></p>
+            <p>docker <span style='color:red;'>logs</span> container_name <span style='color:grey;'>// shows what is going wrong</span></p>
+            <p>docker <span style='color:red;'>kill</span> container_name <span style='color:grey;'>// kill container</span></p>
+            <p>docker <span style='color:red;'>stop</span> container_name <span style='color:grey;'>// attempts to stop process and then kill container</span></p>
+            <p>docker <span style='color:red;'>rm</span> container_name <span style='color:grey;'>// delete container</span></p>
+            <p>docker <span style='color:red;'>start</span> container_name </p>
+            <p>docker run <span style='color:red;'>--rm</span> hello-world <span style='color:grey;'>// deletes container after exit</span></p>
+            <p>docker <span style='color:red;'>commit</span> [container_id] [image_name]:[tag_name] <span style='color:grey;'>// makes an image from a container</span></p>
+            <p>docker <span style='color:red;'>rmi</span> image_name <span style='color:grey;'>// delete image</span></p>
+        </div><br>
+
+        <p class='green'><b>Registries</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>// Docker hub is one of several registries for images </span></p>
+            <p>docker <span style='color:red;'>search</span> debian <span style='color:grey;'>// searches registry for 'debian' </span></p>
+            <p>docker <span style='color:red;'>pull</span> debian:sid <span style='color:grey;'>// download an image </span></p>
+            <p>docker <span style='color:red;'>tag</span> debian:sid [docker_id]/test-image:v1 <span style='color:grey;'>// copy and rename image </span></p>
+            <p>docker <span style='color:red;'>push</span> [docker_id]/test-image:v1 <span style='color:grey;'>// upload an image </span></p>
+        </div><br>
+
+        <p class='green'><b>Networking</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>// exposing and listening to ports [outside:inside]</span></p>
+            <p><span style='color:grey;'>// set two ports on a server, so they can talk/listen to each other:</span></p>
+            <p>docker run --rm -it <span style='color:red;'>-p</span> 45678:45678 -p 45679:45679 --name echo-server ubuntu:14.04 bash</p>
+            <p><span style='color:grey;'>// setting inside port is optional, to see the ports:</span></p>
+            <p>docker <span style='color:red;'>port</span> echo_server</p>
+            <p>docker <span style='color:red;'>network</span> ls <span style='color:grey;'>// see current networks</span></p>
+            <p>docker network <span style='color:red;'>create</span> my-network <span style='color:grey;'>// make a new network</span></p>
+            <p><span style='color:grey;'>// start a machine on the custom network:</span></p>
+            <p>docker run --rm -it <span style='color:red;'>--net</span> my-network --name my-server ubuntu:14.04 bash</p>
+            <p><span style='color:grey;'>// in bash: </span><span style='color:red;'>ping</span> my-server</p>
+            <br>
+            <p><span style='color:grey;'>// adding more machines on the same network means they can talk on any port:</span></p>
+            <p>docker network create my-exclusive-network</p>
+            <p>docker network <span style='color:red;'>connect</span> my-exclusive-network my-server</p>
+            <p><span style='color:grey;'>// only machines on my-network will be reachable on my-exclusive-network</span></p>
+            <br>
+            <p><span style='color:grey;'>// to demonstrate (bidirectional!) connection using netcat:</span></p>
+            <p><span style='color:grey;'>// on my-server: </span>nc -lp 1234</p>
+            <p><span style='color:grey;'>// on my-server2: </span>nc my-server 1234</p>
+            <p><span style='color:grey;'>// typing will show up on the other side</span></p>
+            <p>docker run --rm -it <span style='color:red;'>--link</span> my-server --name my-new-server ubuntu:14.04 bash <span style='color:grey;'>// using link (legacy) makes this unidirectional</span></p>
+            <p><span style='color:grey;'>// with link, environment variables are copied </span></p>
+            <p><span style='color:grey;'>// in 1st server: </span>-e SECRET=mysecret</p>
+            <p><span style='color:grey;'>// in 2nd server: </span>env <span style='color:grey;'>// shows SECRET </span></p>
+
+        </div><br>
+
+        <p class='green'><b>Sharing files and volumes</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>// this is how to create a permanent volume: </span></p>
+            <p>docker run -it <span style='color:red;'>-v</span> /path/example:/shared_folder ubuntu bash <span style='color:grey;'>// volume local:container </span></p>
+            <p><span style='color:grey;'>// create folder in linux with file (is permanent): </span><span style='color:red;'>touch</span> /shared_folder/file </p>
+            <p>docker run -it -v /shared_folder ubuntu bash </p>
+            <p><span style='color:grey;'>// this is how to create a volume that will disappear with the last container that held it: </span></p>
+            <p>docker ps -l <span style='color:grey;'>// gives the new container's name </span></p>
+            <p>docker run -it --volumes-from container_name ubuntu bash </p>
+            <p><span style='color:red;'>--priviledged=true</span> <span style='color:grey;'>// may manipulate host system </span></p>
+        </div><br>
+
+        <p class='green'><b>Example: SQL server in a Docker container</b></p>
+        <div class='indent'>
+            <p>docker pull mcr.microsoft.com/mssql/server:2017-latest</p>
+            <p>docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<>" -p 1433:1433 --name sql1 -d mcr.microsoft.com/mssql/server:2017-latest</p>
+            <p>docker exec -it sql1 "bash"</p>
+            <p><span style='color:grey;'>// in bash set host, username and pwd: </span>/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "[passwrd]"</p>
+            <p><span style='color:grey;'>// create db in SQL server: </span>CREATE DATABASE TestDB   USE TestDB   CREATE TABLE ...   INSERT INTO ...   GO   QUIT</p>
+            <p><span style='color:grey;'>// connect to it through, e.g., SQL Server Management Studio (set network protocol to TCP/IP) </span></p>
+        </div><br>
+
+        <p class='green'><b>Dockerfiles</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>// Dockerfiles build images and can also start a container, in one go </span></p>
+            <p>docker <span style='color:red;'>build</span> -t name-of-result-image . <span style='color:grey;'>// dot means here, alternatively give path </span></p>
+            <p><span style='color:grey;'>// this uses a file called Dockerfile, example: </span></p>
+            <p><div class='indentDouble'>
+                FROM busybox<br>
+                RUN echo "some text"<br>
+                CMD echo "some more text"<br></div></p>
+            <p>docker build -t some-text .</p>
+            <p>docker run --rm some-text</p>
+            <p><span style='color:grey;'>// a Dockerfiles that installs something: </span></p>
+            <p><div class='indentDouble'>
+                FROM debian:sid<br>
+                RUN apt-get -y update<br>
+                RUN apt-get install nano<br>
+                CMD "nano" "/tmp/notes"<span style='color:grey;'>// this is shell, alternatively use direct: CMD ["/what","/here"] </span><br></div></p>
+            <p><span style='color:grey;'>// build onto a previous Dockerfile: </span></p>
+            <p><div class='indentDouble'>
+                FROM nanoer <span style='color:grey;'>// make notes.txt in the host </span><br>
+                ADD notes.txt /notes.txt<span style='color:grey;'>// adds local files, can also be url </span><br>
+                CMD "nano" "notes.txt"<br></div></p>
+            <p><span style='color:grey;'>// other Dockerfile syntax includes: </span></p>
+            <p><div class='indentDouble'>
+                MAINTAINER, ENV, ENTRYPOINT, EXPOSE, VOLUME, WORKDIR, USER, ...</div></p>
+            <p><span style='color:grey;'>// example of a multi-project Dockerfile: </span></p>
+            <p><div class='indentDouble'>
+                FROM ubuntu:16.04 as builder<br>
+                RUN apt-get update<br>
+                RUN apt-get -y install curl<br>
+                RUN curl https://google.com | wc -c > google-size <span style='color:grey;'>// wc = word count, -c = char count </span><br>
+                FROM alpine <span style='color:grey;'>// makes image MUCH smaller </span><br>
+                COPY --from=builder /google-size /google-size<br>
+                ENTRYPOINT echo google is this big; cat google-size<br></div></p>
+        </div><br>
+
+        <p class='green'><b>Container orchestration</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>// Let several containers work together, possibly on different hosts. Examples of container orchestrators are: </span></p>
+            <p>Docker Compose - use YAML file</p>
+            <p>Kubernetes</p>
+            <p>Azure Kubernetes Service</p>
+            <p>Google Kubernetes Engine</p>
+        </div><br>
+
+    </div>
+           
+    <div id="footer">
+        thx for watching
+	</div>
+	</body>
+    <script src="scripts/common_script.js"></script>
+    <script src='scripts/js_notebook.js'></script>
+  </body>

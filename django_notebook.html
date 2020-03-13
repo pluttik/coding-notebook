@@ -18,14 +18,15 @@
             <div id="myDropdown" class="dropdown-content">
 			    <a href="index.html">Home</a>
                 <a href="htmlcssonly.html">HTML and CSS only</a>
-			    <a href="games.html">Javascript games</a>
-                <a href="git_notebook.html">Git notebook</a>
                 <a href="js_notebook.html">JavaScript notebook</a>
-                <a href="java_notebook.html">Java notebook</a>
+			    <a href="js_games.html">Javascript games</a>
+                <a href="react_notebook.html">React notebook</a>
+                <a href="git_notebook.html">Git notebook</a>
+                <a href="docker_notebook.html">Docker notebook</a>
                 <a href="databases_notebook.html">Databases notebook</a>
                 <a href="testing_notebook.html">Testing notebook</a>
+                <a href="java_notebook.html">Java notebook</a>
                 <a href="django_notebook.html">Django notebook</a>
-                
 			</div>
 		</div>
 	</div>
@@ -63,6 +64,15 @@
         <div class='indent'>
             <p>python manage.py shell<span style='color:grey;'> # start the shell</span></p>
             <p><span style='color:orange;'>from my_app.models import MyClass</span><span style='color:grey;'> # import a model class</span></p>
+            <p><span style='color:orange;'>MyClass.objects.all()</span><span style='color:grey;'> # shows all objects of that class</span></p>
+            <p><span style='color:orange;'>q = MyClass(field1="Some text.", field2=24)</span><span style='color:grey;'> # prepare a new row</span></p>
+            <p><span style='color:orange;'>q.save()</span><span style='color:grey;'> # save row to the database</span></p>
+        </div><br>
+
+        <p class='green'><b>Functional testing with Selenium</b></p>
+        <div class='indent'>
+            <p>pip install selenium</p>
+            <p><span style='color:grey;'># download webdriver for browser under test and store in venv\scripts </span></p>
             <p><span style='color:orange;'>MyClass.objects.all()</span><span style='color:grey;'> # shows all objects of that class</span></p>
             <p><span style='color:orange;'>q = MyClass(field1="Some text.", field2=24)</span><span style='color:grey;'> # prepare a new row</span></p>
             <p><span style='color:orange;'>q.save()</span><span style='color:grey;'> # save row to the database</span></p>
