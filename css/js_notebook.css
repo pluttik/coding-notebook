@@ -16,6 +16,9 @@
 .indentTriple {
     margin-left: 84px;
 }
+.indentQuadruple {
+    margin-left: 112px;
+}
 .green {
     color: green;
     font-weight: bold;

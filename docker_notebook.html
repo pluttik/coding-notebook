@@ -172,6 +172,36 @@
             <p>Azure Kubernetes Service</p>
             <p>Google Kubernetes Engine</p>
         </div><br>
+        
+        <p class='green'><b>Example: ASP.NET EF Core 3.1 application with SQL Server 2017, both on docker</b></p>
+        <div class='indent'>
+            <p><span style='color:grey;'>// Start by making a SQL Server container </span></p>
+            <p><span style='color:grey;'>// Make a YAML file for the database, docker-compose.yml: </span></p>
+            <p><div>version: "3"<br>
+            services:</div>
+                <div class='indentDouble'>db:</div>
+                    <div class='indentTriple'>image: "mcr.microsoft.com/mssql/server:2017-latest"<br>
+                    container_name: sql<br>
+                    ports:</div>
+                        <div class='indentQuadruple'>- "1433:1433"</div>
+                    <div class='indentTriple'>volumes:</div>
+                        <div class='indentQuadruple'>- ../db/data:/var/opt/mssql/data <br>
+                        - ../db/log:/var/opt/mssql/log <br>
+                        - ../db/secrets:/var/opt/mssql/secrets</div>
+                    <div class='indentTriple'>environment:</div>
+                        <div class='indentQuadruple'>SA_PASSWORD: "your_password"<br>
+                        ACCEPT_EULA: "Y"</div></p>
+            <p><span style='color:grey;'>// the 'volumes' part makes sure the data remain when restarting the container </span></p>
+            <p>docker-compose up -d <span style='color:grey;'>// run the (single) container </span></p>
+            <p><span style='color:grey;'>// you can view and edit the data e.g. in SQL Server Management Studio </span></p>
+            <p><span style='color:grey;'>// SSMS settings include: servername localhost, network protocol TCP/IP, SQL Server Authentication </span></p>
+            <p><span style='color:grey;'>// make an ASP.NET EF Core 3.1 app </span></p>
+            <p><span style='color:grey;'>// produce a table in SSMS and scaffold it into the app using package manager console: </span></p>
+            <p>Scaffold-DbContext "Server=localhost;Database=[database name];Trusted_Connection=False;User ID=SA;Password=your_password;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models</p>
+            <p><span style='color:grey;'>// adjust the usual settings in Visual Studio to allow CRUD, e.g. using a repository pattern </span></p>
+            <p><span style='color:grey;'>// these include: connectionstrings in appsettings.json and  </span></p>
+            <p><span style='color:grey;'>// services AddDbContext, AddScoped and AddMvc in startup.cs </span></p>
+        </div><br>
 
     </div>
            
