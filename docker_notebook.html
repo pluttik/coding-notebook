@@ -186,8 +186,8 @@
                         <div class='indentQuadruple'>- "1433:1433"</div>
                     <div class='indentTriple'>volumes:</div>
                         <div class='indentQuadruple'>- ../db/data:/var/opt/mssql/data <br>
-                        - ../db/log:/var/opt/mssql/log <br>
-                        - ../db/secrets:/var/opt/mssql/secrets</div>
+                        - ./db/log:/var/opt/mssql/log <br>
+                        - ./db/secrets:/var/opt/mssql/secrets</div>
                     <div class='indentTriple'>environment:</div>
                         <div class='indentQuadruple'>SA_PASSWORD: "your_password"<br>
                         ACCEPT_EULA: "Y"</div></p>
@@ -195,10 +195,12 @@
             <p>docker-compose up -d <span style='color:grey;'>// run the (single) container </span></p>
             <p><span style='color:grey;'>// you can view and edit the data e.g. in SQL Server Management Studio </span></p>
             <p><span style='color:grey;'>// SSMS settings include: servername localhost, network protocol TCP/IP, SQL Server Authentication </span></p>
-            <p><span style='color:grey;'>// make an ASP.NET EF Core 3.1 app </span></p>
-            <p><span style='color:grey;'>// produce a table in SSMS and scaffold it into the app using package manager console: </span></p>
+            <p><span style='color:grey;'>// make an ASP.NET EF Core 3.1 app and </span></p>
+            <p><span style='color:grey;'>// a) produce a table in SSMS and scaffold it into the app using package manager console: </span></p>
             <p>Scaffold-DbContext "Server=localhost;Database=[database name];Trusted_Connection=False;User ID=SA;Password=your_password;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models</p>
-            <p><span style='color:grey;'>// adjust the usual settings in Visual Studio to allow CRUD, e.g. using a repository pattern </span></p>
+            <p><span style='color:grey;'>// b) or set up your dotnet app to create a database if it does not exist, in Startup.cs Configure </span></p>
+            <p>context.Database.EnsureCreated();</p>
+            <p><span style='color:grey;'>// then adjust the usual settings in Visual Studio to allow CRUD, e.g. using a repository pattern </span></p>
             <p><span style='color:grey;'>// these include: connectionstrings in appsettings.json and  </span></p>
             <p><span style='color:grey;'>// services AddDbContext, AddScoped and AddMvc in startup.cs </span></p>
         </div><br>
